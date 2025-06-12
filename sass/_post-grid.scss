@@ -1,0 +1,10 @@
+// ============================================================================
+// _post-grid.scss
+// Theme: Hello Elementor Child (Modernized June 2025)
+// Description: Grid layout for post cards. Uses theme variables and mixins.
+// ============================================================================
+.post-grid {
+  @include grid-columns(4, 3, 2, 1); // Responsive columns: desktop, tablet, mobile, phone
+  gap: $gap-grid;
+  margin: 2rem 0;
+}

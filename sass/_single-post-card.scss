@@ -1,0 +1,32 @@
+// ============================================================================
+// _single-post-card.scss
+// Theme: Hello Elementor Child (Modernized June 2025)
+// Description: Styles for single post card layout. Uses theme variables and mixins.
+// ============================================================================
+.single-post-card {
+  @include card;
+  margin: 2rem auto;
+  max-width: $max-width-desktop;
+  padding: 0;
+
+  .single-post-thumb img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+    border-top-left-radius: $card-radius;
+    border-top-right-radius: $card-radius;
+  }
+
+  .single-post-content {
+    padding: 2rem;
+    font-size: $body-size;
+    font-family: $font-main;
+  }
+}
+
+// Responsive adjustments for mobile
+@media (max-width: 600px) {
+  .single-post-card { margin: 1rem; }
+  .single-post-content { padding: 1rem; }
+}

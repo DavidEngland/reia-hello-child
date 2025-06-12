@@ -1,0 +1,188 @@
+// ============================================================================
+// home.scss
+// Theme: Hello Elementor Child (Modernized June 2025)
+// Description: SCSS for Connections Directory home page card layout and styling.
+// - Maintains the look and feel of the current .home #cn-cmap styles
+// - Uses theme variables, modern CSS, and best practices
+// - Responsive, accessible, and maintainable
+// ============================================================================
+
+// 1. Home Page Card Layout & Styling
+.home #cn-cmap #cn-list-body {
+  text-align: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--card-gap, 2rem);
+  @container (max-width: 700px) {
+    flex-direction: column;
+    align-items: center;
+    gap: var(--card-gap, 2rem);
+  }
+  @container (min-width: 701px) {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--card-gap, 2rem);
+  }
+}
+
+.home #cn-cmap .cn-list-row,
+.home #cn-cmap .cn-list-row-alternate {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: var(--card-max-width, min(300px, 90vw));
+  margin-left: auto;
+  margin-right: auto;
+  gap: var(--card-gap, 2rem);
+  box-sizing: border-box;
+  background: transparent !important;
+  border-radius: var(--card-radius, 0.75rem);
+  box-shadow: var(--card-shadow, 0 2px 12px rgba(0,0,0,0.07));
+  padding: var(--card-padding, clamp(0.5rem, 2vw, 1.5rem));
+  transition: box-shadow 0.2s;
+  @container (max-width: 700px) {
+    max-width: 100vw;
+    min-width: min(220px, 90vw);
+    padding: clamp(0.5rem, 2vw, 1rem);
+  }
+  &:hover {
+    box-shadow: var(--card-shadow-hover, 0 4px 16px rgba(0,45,95,0.08));
+  }
+}
+
+// 2. Remove default card styling on home for a clean look
+.home #cn-cmap .cn-entry {
+  border: none !important;
+  padding: 0 !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  background: transparent !important;
+}
+
+// 3. Image Styling (Home)
+.home #cn-cmap span.cn-image-style {
+  border-radius: 0.5rem;
+  background: rgba(255, 255, 255, 0.10);
+  border: var(--image-border, 2px solid #fff);
+  padding: 0;
+  display: block !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  width: var(--card-img-size, clamp(80px, 30vw, 160px)) !important;
+  height: var(--card-img-size, clamp(80px, 30vw, 160px)) !important;
+  overflow: hidden;
+}
+.home #cn-cmap .cn-left > .cn-image-style > span,
+.home #cn-cmap .cn-left .cn-image-style,
+.home #cn-cmap .cn-left img.cn-image {
+  width: 100% !important;
+  height: 100% !important;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  box-sizing: border-box;
+  object-fit: cover;
+}
+
+// 4. Centering & Alignment on Home
+.home #cn-cmap .cn-entry,
+.home #cn-cmap .cn-left,
+.home #cn-cmap .cn-right {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  text-align: center !important;
+  margin-inline: auto !important;
+}
+
+// 5. Text & Link Styling on Home
+.home #cn-cmap .fn,
+.home #cn-cmap .title,
+.home #cn-cmap .cn-phone-number,
+.home #cn-cmap .cn-phone-number a,
+.home #cn-cmap .cn-list-row a,
+.home #cn-cmap .cn-list-row h2 .fn,
+.home #cn-cmap .cn-list-row-alternate h2 .fn {
+  text-align: center !important;
+  color: var(--text-color, #fff) !important;
+  font-weight: 500;
+  margin-top: 10px;
+  background: transparent !important;
+  font-size: var(--fn-size, clamp(1.1rem, 2vw, 1.4rem));
+}
+.home #cn-list span.title {
+  font-style: italic;
+  font-size: var(--title-size, clamp(1rem, 1.5vw, 1.2rem));
+}
+.home #cn-cmap .cn-list-row a,
+.home #cn-cmap .cn-list-row h2 .fn,
+.home #cn-cmap .cn-list-row-alternate h2 .fn {
+  margin-top: 15px;
+}
+
+// 6. Link hover effects
+.home #cn-cmap a,
+.home #cn-cmap .cn-phone-number a {
+  color: var(--text-color, #fff) !important;
+  background: transparent !important;
+  transition: color 0.2s;
+  text-decoration: none;
+}
+.home #cn-cmap a:hover,
+.home #cn-cmap .cn-phone-number a:hover {
+  color: var(--link-hover, #ffd700) !important;
+  text-decoration: underline;
+}
+
+// 7. Elementor & Theme Compatibility
+.elementor-widget-container,
+.elementor-section,
+.elementor-container {
+  overflow: visible !important;
+}
+
+// 8. Hide scrollbars for a cleaner look (optional)
+#cn-cmap {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+// 9. Responsive Alignment for .cn-right (non-home)
+@container (max-width: 700px) {
+  #cn-cmap .cn-right {
+    text-align: left;
+    align-self: flex-start;
+  }
+}
+@container (min-width: 701px) {
+  #cn-cmap .cn-right {
+    text-align: right;
+    align-self: flex-end;
+  }
+}
+
+// 10. Universal Fixes for All Pages (not just .home)
+#cn-cmap .cn-left > .cn-image-style > span,
+#cn-cmap .cn-left .cn-image-style,
+#cn-cmap .cn-left img.cn-image {
+  max-width: 100% !important;
+  width: 100% !important;
+  height: auto !important;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  box-sizing: border-box;
+}
+#cn-cmap .cn-left {
+  float: none !important;
+  margin-right: 0 !important;
+  max-width: 100% !important;
+  width: 100% !important;
+}

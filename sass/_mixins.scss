@@ -1,0 +1,55 @@
+// ============================================================================
+// _mixins.scss
+// Theme: Hello Elementor Child (Modernized June 2025)
+// Description: SASS mixins for reusable patterns (cards, flex, grid, font, a11y)
+// - Use these mixins in all partials for consistency and maintainability
+// ============================================================================
+
+// Card mixin: Modern, flexible, and theme-aware
+@mixin card(
+  $background: $card-bg,
+  $radius: $card-radius,
+  $shadow: $card-shadow
+) {
+  background: $background;
+  border-radius: $radius;
+  box-shadow: $shadow;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: box-shadow 0.2s, border-radius 0.3s;
+}
+
+// Flex center utility
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+// Fluid font size utility
+@mixin fluid-font($min, $max, $vw-min: 320, $vw-max: 1200) {
+  font-size: clamp(#{$min}, calc(#{$min} + (#{$max} - #{$min}) * ((100vw - #{$vw-min}px) / (#{$vw-max} - #{$vw-min}))), #{$max});
+}
+
+// Responsive grid columns utility
+@mixin grid-columns($desktop: 4, $tablet: 3, $mobile: 2, $phone: 1) {
+  display: grid;
+  grid-template-columns: repeat(#{$desktop}, 1fr);
+  @media (max-width: 1200px) { grid-template-columns: repeat(#{$tablet}, 1fr); }
+  @media (max-width: 900px) { grid-template-columns: repeat(#{$mobile}, 1fr); }
+  @media (max-width: 600px) { grid-template-columns: repeat(#{$phone}, 1fr); }
+}
+
+// Visually hidden utility (for accessibility)
+@mixin visually-hidden {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}

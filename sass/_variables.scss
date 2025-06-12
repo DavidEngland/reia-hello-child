@@ -1,0 +1,57 @@
+// ============================================================================
+// _variables.scss
+// Theme: Hello Elementor Child (Modernized June 2025)
+// Description: Centralized SASS variables and CSS custom properties for the child theme.
+// - All design tokens (colors, spacing, fonts, breakpoints, etc.)
+// - SASS variables for build-time use
+// - CSS custom properties for runtime theming and JS access
+// - Keep this file in sync with :root in style.css
+// ============================================================================
+$primary: #002D5F;
+$accent: #0073e6;
+$card-radius: 1.5rem;
+$card-bg: hsl(40 75% 96%);
+$card-shadow: 0 2px 12px rgba(0,0,0,0.07);
+$card-shadow-hover: 0 4px 16px rgba(0,45,95,0.08);
+$gap-cards: 2rem;
+$gap-grid: clamp(1rem, 3vw, 2.5rem);
+$heading-size: clamp(1.25rem, 2vw, 2.25rem);
+$body-size: clamp(1rem, 1.5vw, 1.125rem);
+$card-thumb-height: clamp(120px, 20vw, 300px);
+$font-main: 'Inter', Arial, sans-serif;
+$font-heading: 'Merriweather', serif;
+$max-width-desktop: 980px;
+$max-width-tablet: 800px;
+$max-width-mobile: 600px;
+$max-width-small: 100%;
+$content-padding-desktop: clamp(1.5rem, 4vw, 2.5rem);
+$content-padding-tablet: clamp(1rem, 3vw, 2rem);
+$content-padding-mobile: clamp(0.5rem, 2vw, 1rem);
+$content-padding-small: 0.5rem;
+$excerpt-lines: 3;
+
+// CSS custom properties for runtime theming
+:root {
+  --primary: #{$primary};
+  --accent: #{$accent};
+  --card-radius: #{$card-radius};
+  --card-bg: #{$card-bg};
+  --card-shadow: #{$card-shadow};
+  --card-shadow-hover: #{$card-shadow-hover};
+  --gap-cards: #{$gap-cards};
+  --gap-grid: #{$gap-grid};
+  --heading-size: #{$heading-size};
+  --body-size: #{$body-size};
+  --card-thumb-height: #{$card-thumb-height};
+  --font-main: #{$font-main};
+  --font-heading: #{$font-heading};
+  --max-width-desktop: #{$max-width-desktop};
+  --max-width-tablet: #{$max-width-tablet};
+  --max-width-mobile: #{$max-width-mobile};
+  --max-width-small: #{$max-width-small};
+  --content-padding-desktop: #{$content-padding-desktop};
+  --content-padding-tablet: #{$content-padding-tablet};
+  --content-padding-mobile: #{$content-padding-mobile};
+  --content-padding-small: #{$content-padding-small};
+  --excerpt-lines: #{$excerpt-lines};
+}
