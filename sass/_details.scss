@@ -1,0 +1,107 @@
+/* ==========================================================================
+   1. Modern Details/Summary Styling (Accessible, Minimal Movement)
+   ========================================================================== */
+/**
+ * Enhanced <details> and <summary> styling for modern UIs:
+ * - Minimal horizontal movement on expand/collapse
+ * - Left-aligned, full-width content (like an accordion)
+ * - Custom arrow indicator, smooth transitions, and focus state
+ * - Fully accessible and keyboard-friendly
+ * - All spacing/padding handled for consistent alignment
+ *
+ * Usage:
+ *   <details open>
+ *     <summary>Section Title</summary>
+ *     <p>Content goes here...</p>
+ *   </details>
+ *
+ * To have all open by default, add the `open` attribute to each <details> in your HTML.
+ * Native CSS cannot force all open or true accordion (one open at a time) behavior.
+ */
+
+details {
+  width: 100%;
+  max-width: 700px; // Set to 100% for container width, or adjust as needed
+  margin: 0 0 1.5em 0;
+  border-radius: 0.5em;
+  border: 1px solid #e0e6ed;
+  background: var(--muted, #fafbfc);
+  padding: 0; // Remove container padding to prevent horizontal shift
+  box-shadow: 0 1px 4px rgba(0,45,95,0.04);
+  position: relative;
+  transition: box-shadow 0.2s, background 0.2s;
+}
+
+details[open] {
+  box-shadow: 0 4px 16px rgba(0,45,95,0.10);
+  background: #fffbe7;
+}
+
+summary {
+  font-weight: 700;
+  color: var(--primary, #002d5f);
+  cursor: pointer;
+  outline: none;
+  padding: 0.7em 1.2em; // Horizontal padding only on summary
+  margin-bottom: 0.5em;
+  font-size: 1.13em;
+  letter-spacing: 0.01em;
+  border-bottom: 1px solid #e0e6ed;
+  transition: color 0.2s, border-color 0.2s, background 0.2s;
+  list-style: none;
+  background: transparent;
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+}
+
+// Hide default marker for all browsers
+summary::-webkit-details-marker,
+summary::marker {
+  display: none;
+}
+
+details[open] summary {
+  color: var(--accent, #ac3033);
+  border-bottom: 1px solid #ffd9b3;
+}
+
+// Custom arrow indicator for summary (rotates on open)
+summary::after {
+  content: "▼";
+  margin-left: auto;
+  font-size: 0.9em;
+  color: #bbb;
+  transition: transform 0.2s, color 0.2s;
+}
+details[open] summary::after {
+  transform: rotate(-180deg);
+  color: var(--accent, #ac3033);
+}
+
+// Content inside details: left-aligned, no extra horizontal movement
+// Use margin for spacing, not padding, to avoid shifting
+// Applies to all direct children except summary
+//
+details > *:not(summary) {
+  margin: 0.7em 1.2em 0.7em 1.2em;
+}
+
+details:last-child {
+  margin-bottom: 0;
+}
+
+// Focus style for accessibility (keyboard users)
+summary:focus {
+  outline: 2px solid var(--accent, #ac3033);
+  outline-offset: 2px;
+  background: #fbeaea;
+  border-radius: 0.3em;
+}
+
+/*
+  Notes:
+  - To have all details open by default, add the `open` attribute to each <details> in your HTML.
+  - For true accordion (one open at a time), JavaScript is required.
+  - This SCSS is fully accessible, responsive, and avoids layout shift.
+*/

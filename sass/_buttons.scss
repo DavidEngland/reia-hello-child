@@ -1,0 +1,240 @@
+/* ==========================================================================
+   2. Modern Button Classes (Accessible, Responsive, Animated, Utility)
+   ========================================================================== */
+/**
+ * This file provides a suite of modern, accessible, and extensible button classes for WordPress themes.
+ * - Uses @layer for CSS layering, @property for animatable custom properties, and @container for responsive button layouts.
+ * - All classes are utility-first, composable, and documented for clarity.
+ * - Add or combine classes as needed for different button styles and states.
+ *
+ * Usage: Add the relevant class(es) to <button>, <a>, or .elementor-button widgets.
+ */
+
+/* =============================
+   CSS Custom Properties for Buttons
+   ============================= */
+@property --btn-bg {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: #fff;
+}
+@property --btn-color {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: #002D5F;
+}
+@property --btn-border {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: var(--accent, #0073e6);
+}
+@property --btn-radius {
+  syntax: '<length>';
+  inherits: true;
+  initial-value: 2em;
+}
+@property --btn-shadow {
+  syntax: '<shadow>';
+  inherits: true;
+  initial-value: 0 2px 8px rgba(0,45,95,0.08);
+}
+
+:root {
+  --btn-bg: #fff;
+  --btn-color: #002D5F;
+  --btn-border: var(--accent, #0073e6);
+  --btn-radius: 2em;
+  --btn-shadow: 0 2px 8px rgba(0,45,95,0.08);
+}
+
+@layer components {
+  /* Base button (reset + modern look) */
+  .btn,
+  .button,
+  .wp-block-button__link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-main, 'Inter', Arial, sans-serif);
+    font-weight: 600;
+    font-size: 1.08em;
+    line-height: 1.2;
+    padding: 0.7em 2em;
+    border-radius: var(--btn-radius);
+    border: 2px solid var(--btn-border);
+    background: var(--btn-bg);
+    color: var(--btn-color);
+    box-shadow: var(--btn-shadow);
+    cursor: pointer;
+    transition: color 0.2s, background 0.2s, border-color 0.2s, box-shadow 0.2s, --btn-radius 0.3s;
+    text-decoration: none;
+    position: relative;
+    overflow: hidden;
+    min-width: 2.5em;
+    min-height: 2.5em;
+    user-select: none;
+    outline: none;
+  }
+  .btn:focus-visible,
+  .button:focus-visible,
+  .wp-block-button__link:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+    box-shadow: 0 0 0 4px rgba(0,115,230,0.12);
+  }
+
+  /* Primary button (filled accent) */
+  .btn-primary {
+    --btn-bg: var(--accent, #0073e6);
+    --btn-color: #fff;
+    --btn-border: var(--accent, #0073e6);
+  }
+  .btn-primary:hover,
+  .btn-primary:focus {
+    --btn-bg: #005bb5;
+    --btn-border: #005bb5;
+    --btn-radius: 2.5em;
+  }
+
+  /* Secondary button (outline, accent text) */
+  .btn-secondary {
+    --btn-bg: #fff;
+    --btn-color: var(--accent, #0073e6);
+    --btn-border: var(--accent, #0073e6);
+  }
+  .btn-secondary:hover,
+  .btn-secondary:focus {
+    --btn-bg: var(--accent, #0073e6);
+    --btn-color: #fff;
+    --btn-radius: 2.5em;
+  }
+
+  /* Danger button (red) */
+  .btn-danger {
+    --btn-bg: #fff;
+    --btn-color: #d7263d;
+    --btn-border: #d7263d;
+  }
+  .btn-danger:hover,
+  .btn-danger:focus {
+    --btn-bg: #d7263d;
+    --btn-color: #fff;
+    --btn-border: #d7263d;
+  }
+
+  /* Success button (green) */
+  .btn-success {
+    --btn-bg: #fff;
+    --btn-color: #1ca67a;
+    --btn-border: #1ca67a;
+  }
+  .btn-success:hover,
+  .btn-success:focus {
+    --btn-bg: #1ca67a;
+    --btn-color: #fff;
+    --btn-border: #1ca67a;
+  }
+
+  /* Small and large button sizes */
+  .btn-small {
+    font-size: 0.95em;
+    padding: 0.5em 1.2em;
+    border-radius: 1.5em;
+  }
+  .btn-large {
+    font-size: 1.25em;
+    padding: 1em 2.5em;
+    border-radius: 2.5em;
+  }
+
+  /* Block (full-width) button */
+  .btn-block {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+  }
+
+  /* Icon button (circular, for icons only) */
+  .btn-icon {
+    padding: 0.5em;
+    width: 2.5em;
+    height: 2.5em;
+    border-radius: 50%;
+    font-size: 1.2em;
+    justify-content: center;
+  }
+
+  /* Ghost button (transparent, accent border) */
+  .btn-ghost {
+    --btn-bg: transparent;
+    --btn-color: var(--accent, #0073e6);
+    --btn-border: var(--accent, #0073e6);
+    box-shadow: none;
+  }
+  .btn-ghost:hover,
+  .btn-ghost:focus {
+    --btn-bg: var(--accent, #0073e6);
+    --btn-color: #fff;
+  }
+
+  /* Animated border (see also .btn-animated-border) */
+  .btn-animated-border {
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+  }
+  .btn-animated-border::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    border: 2px solid var(--btn-border, var(--accent, #0073e6));
+    border-radius: inherit;
+    pointer-events: none;
+    box-sizing: border-box;
+    transform: scaleX(0);
+    transition: transform 0.4s cubic-bezier(.4,1.6,.6,1);
+  }
+  .btn-animated-border:hover::before,
+  .btn-animated-border:focus::before {
+    transform: scaleX(1);
+  }
+
+  /* Minimal button (no border, just text) */
+  .btn-minimal {
+    --btn-bg: transparent;
+    --btn-color: var(--primary, #002D5F);
+    --btn-border: transparent;
+    box-shadow: none;
+    border-width: 0;
+    padding: 0.7em 1em;
+  }
+  .btn-minimal:hover,
+  .btn-minimal:focus {
+    --btn-color: var(--accent, #0073e6);
+    text-decoration: underline;
+  }
+
+  /* Responsive button group using @container */
+  .btn-group {
+    display: flex;
+    gap: 1em;
+    flex-wrap: wrap;
+    container-type: inline-size;
+  }
+  @container (max-width: 400px) {
+    .btn-group {
+      flex-direction: column;
+      gap: 0.5em;
+    }
+  }
+}
+
+/*
+  Notes:
+  - All button classes are composable and can be combined.
+  - Use @layer to ensure button styles are easy to override or extend.
+  - @property enables smooth transitions and future-proofing.
+  - @container allows responsive button groups.
+  - Add or adjust classes as needed for your theme.
+*/
