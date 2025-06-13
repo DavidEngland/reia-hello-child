@@ -1,4 +1,4 @@
-# Hello Elementor Child Theme (REIA Ollie Child)
+# Hello Elementor Child Theme
 
 A modern, maintainable, and extensible WordPress child theme for [Hello Elementor](https://wordpress.org/themes/hello-elementor/), designed for rapid development with Elementor and custom plugins.
 
