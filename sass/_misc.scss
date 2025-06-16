@@ -1,0 +1,211 @@
+// Modern SCSS partial: uses @use for dependencies
+@use 'variables' as *;
+@use 'mixins' as *;
+
+/* ==========================================================================
+   Footer Navigation (Top Level Only) — Modernized & Documented
+   ========================================================================== */
+/**
+ * Ensures only top-level menu items are visible in the footer navigation.
+ * - Hides submenu arrows (dropdown indicators)
+ * - Hides all submenu lists (ul ul)
+ * - Uses !important to override plugin or theme styles
+ * - Safe for use with Elementor HFE, UAE, and most WP menu plugins
+ * - Add to _misc.scss or _hfe.scss as needed
+ *
+ * Example HTML structure:
+ * <footer>
+ *   <nav class="hfe-nav-menu">
+ *     <ul>
+ *       <li><a>Top Level</a></li>
+ *       <li class="menu-item-has-children">
+ *         <a>Top Level</a>
+ *         <span class="sub-arrow"></span>
+ *         <ul><li><a>Submenu</a></li></ul>
+ *       </li>
+ *     </ul>
+ *   </nav>
+ * </footer>
+ */
+
+footer .hfe-nav-menu .sub-arrow {
+  display: none !important; /* Hide dropdown arrow/indicator */
+}
+
+footer .hfe-nav-menu ul ul,
+footer .hfe-nav-menu li.menu-item-has-children > ul {
+  display: none !important; /* Hide all submenus */
+}
+
+/* Optional: Remove pointer events from sub-arrow for extra safety */
+footer .hfe-nav-menu .sub-arrow {
+  pointer-events: none !important;
+}
+
+/* Optional: Add a clear focus style for top-level links */
+footer .hfe-nav-menu a:focus-visible {
+  outline: 2px solid var(--accent, #0073e6);
+  outline-offset: 2px;
+  border-radius: 0.5em;
+  background: #f0f6ff;
+}
+
+/* ==========================================================================
+   Miscellaneous Utilities & Global Fixes
+   ========================================================================== */
+
+/* 1. Visually Hidden (for accessibility, e.g., screen reader only text) */
+.visually-hidden,
+.sr-only {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
+
+/* 2. Clearfix utility (for legacy floats, if needed) */
+.clearfix::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* 3. Responsive embed (for iframes, videos, etc.) */
+.responsive-embed {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%; // 16:9 aspect ratio
+  height: 0;
+  overflow: hidden;
+}
+.responsive-embed iframe,
+.responsive-embed embed,
+.responsive-embed object,
+.responsive-embed video {
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+}
+/* ==========================================================================
+   Responsive Google Map Embeds
+   ========================================================================== */
+
+/**
+ * Responsive container for Google Maps embeds.
+ * - Shows different map sizes based on screen width.
+ * - Focus style for accessibility.
+ */
+
+@layer components {
+  .responsive-map-embeds {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin: 2rem 0;
+    gap: 1rem;
+  }
+
+  .map-embed {
+    display: none;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+    border-radius: 1rem;
+    width: 100%;
+    max-width: 100%;
+    border: 0;
+    max-height: 70vh;
+  }
+
+  @media (max-width: 599px) {
+    .map-embed--small {
+      display: block;
+    }
+  }
+
+  @media (min-width: 600px) and (max-width: 1023px) {
+    .map-embed--medium {
+      display: block;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .map-embed--large {
+      display: block;
+    }
+  }
+
+  .map-embed:focus {
+    outline: 2px solid var(--accent, #ac3033);
+    outline-offset: 2px;
+  }
+}
+/* 4. Utility: .no-select (disable text selection) */
+.no-select {
+  user-select: none !important;
+  -webkit-user-select: none !important;
+  -ms-user-select: none !important;
+}
+
+/* 5. Utility: .text-center, .text-left, .text-right */
+.text-center { text-align: center !important; }
+.text-left   { text-align: left !important; }
+.text-right  { text-align: right !important; }
+
+/* 6. Utility: .m-0, .p-0 (margin/padding reset) */
+.m-0 { margin: 0 !important; }
+.p-0 { padding: 0 !important; }
+
+/* 7. Utility: .rounded, .rounded-sm, .rounded-lg */
+.rounded    { border-radius: 0.5rem !important; }
+.rounded-sm { border-radius: 0.25rem !important; }
+.rounded-lg { border-radius: 1.5rem !important; }
+
+/* 8. Utility: .shadow, .shadow-lg */
+.shadow    { box-shadow: 0 2px 8px rgba(0,0,0,0.08) !important; }
+.shadow-lg { box-shadow: 0 4px 24px rgba(0,0,0,0.12) !important; }
+
+/* 9. Utility: .d-block, .d-inline, .d-none */
+.d-block  { display: block !important; }
+.d-inline { display: inline !important; }
+.d-none   { display: none !important; }
+
+/* 10. Print styles (optional, for better print output) */
+@media print {
+  body { background: #fff !important; color: #000 !important; }
+  a, a:visited { color: #000 !important; text-decoration: underline !important; }
+  nav, .no-print, .elementor-header, .elementor-footer { display: none !important; }
+}
+
+/* ==========================================================================
+   Utility: .object-cover, .object-contain, .object-fill, .object-scale-down
+   Modern object-fit utilities for images, video, and embeds
+   ==========================================================================
+*/
+/**
+ * Utility classes for object-fit, for use on <img>, <video>, <iframe>, etc.
+ * - .object-cover: Fill container, cropping if needed
+ * - .object-contain: Fit inside container, preserving aspect ratio
+ * - .object-fill: Fill container, may distort
+ * - .object-scale-down: Scale down to fit, or none
+ *
+ * Usage:
+ *   <img src="..." class="object-cover" />
+ *   <iframe class="object-contain" ...></iframe>
+ *   <video class="object-fill" ...></video>
+ *
+ * Provides modern layout for media, with graceful fallback for older browsers.
+ */
+.object-cover    { object-fit: cover !important; }
+.object-contain  { object-fit: contain !important; }
+.object-fill     { object-fit: fill !important; }
+.object-scale-down { object-fit: scale-down !important; }
+
+/* Fallback for older browsers: object-fit is ignored, so images/videos will default to their intrinsic size/behavior.
+   For best results, always set width/height or use a container with overflow:hidden. */

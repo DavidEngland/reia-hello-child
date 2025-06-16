@@ -1,0 +1,62 @@
+# Node modules and dependencies
+node_modules/
+
+# SASS/SCSS cache and build artifacts
+.sass-cache/
+*.css.map
+*.css.liquid
+*.css.d.ts
+
+# Compiled CSS (if built from SCSS, keep only source in git)
+*.css
+!style.css  # (if you want to keep the main theme stylesheet)
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# VS Code settings
+.vscode/
+
+# Build scripts and output
+build/
+dist/
+home.scss
+*.sh
+
+
+# Composer dependencies
+/vendor/
+composer.lock
+
+# Environment files
+.env
+.env.*
+
+# WordPress specific
+wp-content/uploads/
+wp-content/cache/
+wp-content/upgrade/
+
+# Backup and temp files
+*.bak
+*.tmp
+*~
+
+# SFTP/FTP config
+.sftp.json
+ftpconfig.json
+
+# Ignore local config
+local-config.php
+
+# Ignore test output
+coverage/
+
+# Ignore macOS resource forks
+._*

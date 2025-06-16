@@ -1,0 +1,29 @@
+/*!
+Theme Name: Hello Elementor Child
+Theme URI: https://github.com/elementor/hello-theme-child/
+Description: Hello Elementor Child is a child theme of Hello Elementor, created by Elementor team
+Author: Elementor Team
+Author URI: https://elementor.com/
+Template: hello-elementor
+Version: 2.2.17
+Text Domain: hello-elementor-child
+License: GNU General Public License v3 or later.
+License URI: https://www.gnu.org/licenses/gpl-3.0.html
+Tags: flexible-header, custom-colors, custom-menu, custom-logo, editor-style, featured-images, rtl-language-support, threaded-comments, translation-ready
+*/
+
+/* ==========================================================================
+   Theme: Hello Elementor Child (Modernized June 2025)
+   Modern CSS: Container Queries, clamp(), min(), max(), Variables, Docs
+   ==========================================================================
+   - Uses CSS custom properties for breakpoints, paddings, and colors
+   - Uses clamp(), min(), max() for fluid font sizes, gaps, paddings, heights
+   - Uses @container queries for .post-grid and .post-card responsiveness
+   - Responsive Google Maps: .map-embed--small/medium/large shown by viewport
+   - Modern line-clamp for excerpts
+   - Utility classes for Elementor and custom layouts
+   - All sections are commented for clarity and maintainability
+   ==========================================================================
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Roboto+Slab:wght@400;700&display=swap');
