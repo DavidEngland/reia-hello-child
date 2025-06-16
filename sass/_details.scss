@@ -1,6 +1,10 @@
-/* ==========================================================================
-   1. Modern Details/Summary Styling (Accessible, Minimal Movement)
-   ========================================================================== */
+// Modern SCSS partial: uses @use for dependencies
+@use 'variables' as *;
+@use 'mixins' as *;
+
+/* ========================================================================== */
+/* Modern Details/Summary Styling (Accessible, Minimal Movement, :has, @scope) */
+/* ========================================================================== */
 /**
  * Enhanced <details> and <summary> styling for modern UIs:
  * - Minimal horizontal movement on expand/collapse
@@ -8,6 +12,8 @@
  * - Custom arrow indicator, smooth transitions, and focus state
  * - Fully accessible and keyboard-friendly
  * - All spacing/padding handled for consistent alignment
+ * - Uses :has() for advanced open/close styling (with fallback)
+ * - Uses @scope for future-proofed, isolated styles (with fallback)
  *
  * Usage:
  *   <details open>
@@ -99,8 +105,48 @@ summary:focus {
   border-radius: 0.3em;
 }
 
+/* ============================= */
+/* Modern :has() selector for open/close state (with fallback) */
+/* ============================= */
+// Fallback for browsers without :has()
+details[open] {
+  border-color: #ffd9b3;
+}
+// Modern browsers: highlight parent when any details is open
+@supports selector(details:has([open])) {
+  details:has([open]) {
+    outline: 2px solid var(--accent, #ac3033);
+    outline-offset: 2px;
+    box-shadow: 0 0 0 4px #ffe6cc;
+  }
+}
+
+/* ============================= */
+/* Scoped styles for details (future-proof, with fallback) */
+/* ============================= */
+@scope (details) {
+  summary {
+    background: #fffbe7;
+  }
+  details[open] summary {
+    background: #fffbe7;
+    color: var(--accent, #ac3033);
+  }
+}
+// Fallback for browsers without @scope
+@media (min-width: 0px) {
+  details summary {
+    background: #fffbe7;
+  }
+  details[open] summary {
+    background: #fffbe7;
+    color: var(--accent, #ac3033);
+  }
+}
+
 /*
   Notes:
+  - Uses :has() and @scope for advanced styling in modern browsers, with fallbacks for older browsers.
   - To have all details open by default, add the `open` attribute to each <details> in your HTML.
   - For true accordion (one open at a time), JavaScript is required.
   - This SCSS is fully accessible, responsive, and avoids layout shift.

@@ -1,0 +1,142 @@
+/* ===========================================================================
+   Elementor Header Footer (HFE) & UAE Menu Overrides
+   Modern, accessible, and minimal menu improvements for top and footer menus
+   =========================================================================== */
+/**
+ * - Hides all submenus (no dropdowns)
+ * - Hides top menus on mobile (≤ 767px)
+ * - Improves spacing, focus, and hover states
+ * - Uses CSS variables for easy theming
+ * - Ensures only top-level items are visible in footer
+ * - Modern look: spacing, border-radius, transitions, color
+ * - Accessible: clear focus, large tap targets
+ */
+
+:root {
+  --menu-bg: #fff;
+  --menu-color: #002D5F;
+  --menu-hover: #0073e6;
+  --menu-radius: 2em;
+  --menu-padding: 0.7em 1.5em;
+  --menu-gap: 1.5em;
+}
+
+// Top header menus (assume .hfe-nav-menu--main or similar)
+.hfe-nav-menu--main,
+.hfe-nav-menu--main ul {
+  display: flex;
+  gap: var(--menu-gap);
+  background: var(--menu-bg);
+  border-radius: var(--menu-radius);
+  padding: 0.5em 1.5em;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  align-items: center;
+  list-style: none;
+}
+.hfe-nav-menu--main li {
+  position: relative;
+}
+.hfe-nav-menu--main a {
+  color: var(--menu-color);
+  font-weight: 600;
+  font-size: 1.08em;
+  padding: var(--menu-padding);
+  border-radius: var(--menu-radius);
+  text-decoration: none;
+  transition: color 0.2s, background 0.2s;
+  outline: none;
+  display: inline-block;
+}
+.hfe-nav-menu--main a:hover,
+.hfe-nav-menu--main a:focus-visible {
+  color: #fff;
+  background: var(--menu-hover);
+}
+// Hide submenus (no dropdowns)
+.hfe-nav-menu--main ul ul,
+.hfe-nav-menu--main li.menu-item-has-children > ul {
+  display: none !important;
+}
+// Hide top menus on mobile
+@media (max-width: 767px) {
+  .hfe-nav-menu--main {
+    display: none !important;
+  }
+}
+
+// Footer menu (assume .hfe-nav-menu--footer or similar)
+.hfe-nav-menu--footer,
+.hfe-nav-menu--footer ul {
+  display: flex;
+  gap: var(--menu-gap);
+  background: transparent;
+  border-radius: 0;
+  padding: 0;
+  align-items: center;
+  list-style: none;
+  justify-content: center;
+}
+.hfe-nav-menu--footer li {
+  position: relative;
+}
+.hfe-nav-menu--footer a {
+  color: var(--menu-color);
+  font-weight: 500;
+  font-size: 1em;
+  padding: 0.5em 1em;
+  border-radius: 1em;
+  text-decoration: none;
+  transition: color 0.2s, background 0.2s;
+  outline: none;
+  display: inline-block;
+}
+.hfe-nav-menu--footer a:hover,
+.hfe-nav-menu--footer a:focus-visible {
+  color: var(--menu-hover);
+  background: #f0f6ff;
+}
+// Hide all submenus in footer
+.hfe-nav-menu--footer ul ul,
+.hfe-nav-menu--footer li.menu-item-has-children > ul {
+  display: none !important;
+}
+
+// Utility: Hide menu arrows (if any)
+.hfe-nav-menu .sub-arrow,
+.hfe-nav-menu .menu-toggle {
+  display: none !important;
+}
+
+// Utility: Increase tap target size for accessibility
+.hfe-nav-menu a {
+  min-height: 44px;
+  min-width: 44px;
+}
+
+// Utility: Remove default list styles
+.hfe-nav-menu,
+.hfe-nav-menu ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+// Utility: Add focus ring for keyboard users
+.hfe-nav-menu a:focus-visible {
+  outline: 2px solid var(--menu-hover);
+  outline-offset: 2px;
+  background: #f0f6ff;
+  border-radius: 1em;
+}
+.hfe-nav-menu a:hover {
+  background: #f0f6ff;
+  border-radius: 1em;
+}
+
+// Optional: Add subtle divider between menu items
+.hfe-nav-menu--main li:not(:last-child) a {
+  border-right: 1px solid #e0e6ed;
+}
+.hfe-nav-menu--main li:last-child a {
+  border-right: none;
+}

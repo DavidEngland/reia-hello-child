@@ -1,14 +1,8 @@
+// style.scss
 // ============================================================================
 // style.scss (SASS entry point for Hello Elementor Child Theme)
 // Theme: Hello Elementor Child (Modernized June 2025)
-// Description: Imports all SASS partials for the theme. This file is compiled to style.css.
-// - Do not add styles here; use partials for organization and maintainability.
-// - Order of imports matters for CSS cascade and variable/mixin availability.
+// Description: Imports all SASS partials for the theme using @use and @forward.
 // ============================================================================
-@import 'variables';      // Theme variables and CSS custom properties
-@import 'mixins';         // Reusable SASS mixins
-@import 'base';           // Base/element styles (reset, typography)
-@import 'layout';         // Layout/grid/container styles
-@import 'components';     // UI components (cards, buttons, widgets)
-@import 'utilities';      // Utility/helper classes
-@import 'elementor';      // Elementor-specific overrides
+
+@use 'sass/index' as *;

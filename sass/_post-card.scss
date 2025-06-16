@@ -3,6 +3,11 @@
 // Theme: Hello Elementor Child (Modernized June 2025)
 // Description: Styles for post cards in grids and lists. Uses theme variables and mixins.
 // ============================================================================
+
+// Modern SCSS partial: uses @use for dependencies
+@use 'variables' as *;
+@use 'mixins' as *;
+
 .post-card {
   @include card;
 
@@ -15,7 +20,7 @@
     display: block;
     width: 100%;
     height: $card-thumb-height;
-    background: #f4f4f4;
+    background: $card-bg;
     position: relative;
     overflow: hidden;
 
@@ -25,11 +30,11 @@
       height: 100%;
       display: block;
       object-fit: cover;
-      background: #e0e6ed;
+      background: $card-bg-alt;
     }
 
     .post-card-thumb--placeholder {
-      background: #e0e6ed url('data:image/svg+xml;utf8,<svg fill="gray" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><rect width="32" height="32" rx="4" fill="%23e0e6ed"/><path d="M8 24l5-7 4 5 3-4 4 6H8z" fill="%23b0b8c1"/><circle cx="12" cy="12" r="3" fill="%23b0b8c1"/></svg>') center/48px no-repeat;
+      background: $card-bg-alt url('data:image/svg+xml;utf8,<svg fill="gray" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><rect width="32" height="32" rx="4" fill="%23e0e6ed"/><path d="M8 24l5-7 4 5 3-4 4 6H8z" fill="%23b0b8c1"/><circle cx="12" cy="12" r="3" fill="%23b0b8c1"/></svg>') center/48px no-repeat;
     }
   }
 
@@ -58,7 +63,7 @@
   }
 
   .post-card-excerpt {
-    color: #444;
+    color: $color-text-muted;
     font-size: $body-size;
     margin-top: auto;
   }

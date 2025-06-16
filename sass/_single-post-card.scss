@@ -3,6 +3,11 @@
 // Theme: Hello Elementor Child (Modernized June 2025)
 // Description: Styles for single post card layout. Uses theme variables and mixins.
 // ============================================================================
+
+// Modern SCSS partial: uses @use for dependencies
+@use 'variables' as *;
+@use 'mixins' as *;
+
 .single-post-card {
   @include card;
   margin: 2rem auto;

@@ -3,6 +3,11 @@
 // Theme: Hello Elementor Child (Modernized June 2025)
 // Description: Styles for Zillow review link widget. Uses theme variables and responsive units.
 // ============================================================================
+
+// Modern SCSS partial: uses @use for dependencies
+@use 'variables' as *;
+@use 'mixins' as *;
+
 .zillow-review-link {
   display: inline-block;
   text-align: center;
