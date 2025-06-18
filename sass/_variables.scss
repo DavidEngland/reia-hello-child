@@ -7,6 +7,13 @@
 // - CSS custom properties for runtime theming and JS access
 // - Keep this file in sync with :root in style.css
 // ============================================================================
+
+// Import configuration flags first
+@use 'config' as *;
+
+// ============================================================================
+// Core Design Tokens & Variables
+// ============================================================================
 $primary: #002D5F;
 $accent: #0073e6;
 $color-text-muted: #444;

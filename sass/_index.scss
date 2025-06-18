@@ -1,10 +1,44 @@
-// _index.scss
-@forward 'variables';
-@forward 'mixins';
-@forward 'buttons';
-@forward 'details';
-@forward 'post-card';
-@forward 'post-grid';
-@forward 'single-post-card';
-@forward 'zillow-review';
-@forward 'misc';
+// _index.scss - Conditional Module Loading
+// ============================================================================
+// This file conditionally includes SASS content based on feature flags
+// Set flags in _config.scss to control what gets included in the final CSS
+// ============================================================================
+
+// Import all modules, but conditionally output their content
+@use 'config' as config;
+@use 'variables';
+@use 'mixins';
+
+// Always include core modules
+@use 'post-card';
+@use 'single-post-card';
+@use 'misc';
+
+// Conditionally include optional modules by importing their content
+@if config.$include-advanced-buttons {
+  @import 'buttons';
+}
+
+@if config.$include-details-styling {
+  @import 'details';
+}
+
+@if config.$include-post-grid {
+  @import 'post-grid';
+}
+
+@if config.$include-animations {
+  @import 'animations';
+}
+
+@if config.$include-slogans {
+  @import 'slogans';
+}
+
+@if config.$include-zillow-review {
+  @import 'zillow-review';
+}
+
+@if config.$include-hfe-menus {
+  @import 'hfe';
+}

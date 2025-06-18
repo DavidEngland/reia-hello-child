@@ -1,0 +1,465 @@
+/* ==========================================================================
+   11. Company Slogan Styles - Make "Smart Move" Stand Out!
+   ========================================================================== */
+
+/**
+ * Multiple styling options for the company slogan:
+ * "We will help you make the Smart Move — I guarantee it!"
+ *
+ * Each class can be applied to elements containing the slogan for different effects.
+ * Mix and match these classes or use them individually based on context.
+ */
+// Modern SCSS partial: uses @use for dependencies
+@use 'variables' as *;
+@use 'mixins' as *;
+/* Base slogan styling - applies to any element with the slogan */
+.company-slogan,
+.smart-move-slogan,
+[data-slogan*="Smart Move"] {
+    font-family: var(--font-heading);
+    font-weight: 600;
+    line-height: 1.3;
+    color: var(--primary);
+    text-align: center;
+    margin: 1.5rem 0;
+}
+
+/* === OPTION 1: Gradient Text with Glow === */
+.slogan-gradient {
+    background: linear-gradient(45deg, var(--primary), var(--accent), #ff6b35, var(--primary));
+    background-size: 300% 300%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: gradientShift 4s ease-in-out infinite;
+    text-shadow: 0 0 20px rgba(0, 45, 95, 0.3);
+    font-size: clamp(1.5rem, 4vw, 2.5rem);
+    font-weight: 700;
+}
+
+@keyframes gradientShift {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+}
+
+/* === OPTION 2: Highlighted/Boxed Style === */
+.slogan-highlighted {
+    background: linear-gradient(135deg, #fff9e6, #fffbe7);
+    border: 3px solid var(--accent);
+    border-radius: var(--card-radius);
+    padding: clamp(1rem, 3vw, 2rem);
+    box-shadow:
+        0 4px 20px rgba(0, 45, 95, 0.1),
+        inset 0 1px 0 rgba(255, 255, 255, 0.6);
+    position: relative;
+    overflow: hidden;
+    transform: perspective(1000px) rotateX(2deg);
+    transition: transform 0.3s ease;
+}
+
+.slogan-highlighted:hover {
+    transform: perspective(1000px) rotateX(0deg) scale(1.02);
+}
+
+.slogan-highlighted::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(45deg, transparent, rgba(0, 115, 230, 0.1), transparent);
+    transform: rotate(45deg);
+    animation: shimmer 3s infinite;
+}
+
+@keyframes shimmer {
+    0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+    100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+}
+
+/* === OPTION 3: Handwritten/Script Style === */
+.slogan-handwritten {
+    font-family: 'Caveat', 'Dancing Script', cursive, var(--font-heading);
+    font-size: clamp(1.8rem, 5vw, 3rem);
+    color: #2c3e50;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+    transform: rotate(-1deg);
+    letter-spacing: 0.02em;
+    position: relative;
+}
+
+.slogan-handwritten::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 10%;
+    right: 10%;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, var(--accent), transparent);
+    border-radius: 2px;
+    opacity: 0.7;
+}
+
+/* === OPTION 4: Bold Statement with Smart Move Emphasis === */
+.slogan-emphasis {
+    font-size: clamp(1.3rem, 3.5vw, 2.2rem);
+    color: #333;
+}
+
+.slogan-emphasis .smart-move {
+    color: var(--accent);
+    font-weight: 800;
+    font-size: 1.2em;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    background: linear-gradient(135deg, var(--accent), #005bb5);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 2px 10px rgba(0, 115, 230, 0.3);
+    position: relative;
+}
+
+.slogan-emphasis .smart-move::after {
+    content: '™';
+    position: absolute;
+    top: -0.5em;
+    right: -0.8em;
+    font-size: 0.4em;
+    color: var(--accent);
+    font-weight: 400;
+}
+
+.slogan-emphasis .guarantee {
+    color: var(--primary);
+    font-weight: 700;
+    font-style: italic;
+    text-decoration: underline;
+    text-decoration-color: #ff6b35;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 3px;
+}
+
+/* === OPTION 5: Modern Card Style === */
+.slogan-card {
+    background: linear-gradient(135deg, #f8f9fa, #fff);
+    border-radius: 20px;
+    padding: clamp(1.5rem, 4vw, 3rem);
+    box-shadow:
+        0 10px 30px rgba(0, 45, 95, 0.08),
+        0 1px 8px rgba(0, 45, 95, 0.06),
+        inset 0 1px 0 rgba(255, 255, 255, 0.8);
+    border: 1px solid rgba(0, 115, 230, 0.1);
+    position: relative;
+    backdrop-filter: blur(10px);
+    max-width: 800px;
+    margin: 2rem auto;
+}
+
+.slogan-card::before {
+    content: '"';
+    position: absolute;
+    top: -10px;
+    left: 20px;
+    font-size: 4rem;
+    color: var(--accent);
+    opacity: 0.3;
+    font-family: Georgia, serif;
+}
+
+.slogan-card::after {
+    content: '"';
+    position: absolute;
+    bottom: -30px;
+    right: 20px;
+    font-size: 4rem;
+    color: var(--accent);
+    opacity: 0.3;
+    font-family: Georgia, serif;
+}
+
+/* === OPTION 6: Animated Typewriter Effect === */
+.slogan-typewriter {
+    font-family: 'Courier New', monospace;
+    font-size: clamp(1.2rem, 3vw, 1.8rem);
+    border-right: 3px solid var(--accent);
+    white-space: nowrap;
+    overflow: hidden;
+    animation: typewriter 4s steps(50, end), blinkCursor 1s step-end infinite;
+    max-width: fit-content;
+    margin: 2rem auto;
+}
+
+@keyframes typewriter {
+    from { width: 0; }
+    to { width: 100%; }
+}
+
+@keyframes blinkCursor {
+    0%, 50% { border-color: var(--accent); }
+    51%, 100% { border-color: transparent; }
+}
+
+/* === OPTION 7: 3D Text Effect === */
+.slogan-3d {
+    font-size: clamp(1.5rem, 4vw, 2.5rem);
+    font-weight: 800;
+    color: var(--primary);
+    text-shadow:
+        1px 1px 0 var(--accent),
+        2px 2px 0 var(--accent),
+        3px 3px 0 var(--accent),
+        4px 4px 0 var(--accent),
+        5px 5px 10px rgba(0, 45, 95, 0.3);
+    transform: perspective(1000px) rotateX(15deg);
+    letter-spacing: 0.02em;
+}
+
+/* === UTILITY CLASSES === */
+.slogan-center { text-align: center; }
+.slogan-large { font-size: clamp(1.8rem, 5vw, 3rem); }
+.slogan-xl { font-size: clamp(2rem, 6vw, 4rem); }
+.slogan-animate { animation: bounceIn 1s ease-out; }
+
+@keyframes bounceIn {
+    0% { transform: scale(0.3); opacity: 0; }
+    50% { transform: scale(1.05); }
+    70% { transform: scale(0.9); }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+/* === RESPONSIVE ADJUSTMENTS === */
+@media (max-width: 768px) {
+    .slogan-3d {
+        text-shadow:
+            1px 1px 0 var(--accent),
+            2px 2px 0 var(--accent),
+            3px 3px 5px rgba(0, 45, 95, 0.3);
+        transform: perspective(500px) rotateX(10deg);
+    }
+
+    .slogan-highlighted {
+        padding: clamp(0.8rem, 2vw, 1.5rem);
+        transform: perspective(500px) rotateX(1deg);
+    }
+
+    .slogan-card {
+        padding: clamp(1rem, 3vw, 2rem);
+        margin: 1rem auto;
+    }
+}
+
+/* === COMBINATION CLASSES === */
+.slogan-premium {
+    /* Combines slogan-card + slogan-gradient + slogan-large */
+    background: linear-gradient(135deg, #f8f9fa, #fff);
+    border-radius: 20px;
+    padding: clamp(1.5rem, 4vw, 3rem);
+    box-shadow:
+        0 10px 30px rgba(0, 45, 95, 0.08),
+        0 1px 8px rgba(0, 45, 95, 0.06),
+        inset 0 1px 0 rgba(255, 255, 255, 0.8);
+    border: 1px solid rgba(0, 115, 230, 0.1);
+    position: relative;
+    backdrop-filter: blur(10px);
+    max-width: 800px;
+    margin: 2rem auto;
+    background: linear-gradient(45deg, var(--primary), var(--accent), #ff6b35, var(--primary));
+    background-size: 300% 300%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: gradientShift 4s ease-in-out infinite;
+    font-size: clamp(1.8rem, 5vw, 3rem);
+    font-weight: 700;
+}
+
+.slogan-statement {
+    /* Combines slogan-highlighted + slogan-emphasis + slogan-animate */
+    background: linear-gradient(135deg, #fff9e6, #fffbe7);
+    border: 3px solid var(--accent);
+    border-radius: var(--card-radius);
+    padding: clamp(1rem, 3vw, 2rem);
+    box-shadow:
+        0 4px 20px rgba(0, 45, 95, 0.1),
+        inset 0 1px 0 rgba(255, 255, 255, 0.6);
+    position: relative;
+    overflow: hidden;
+    transform: perspective(1000px) rotateX(2deg);
+    transition: transform 0.3s ease;
+    font-size: clamp(1.3rem, 3.5vw, 2.2rem);
+    color: #333;
+    animation: bounceIn 1s ease-out;
+}
+
+/* === CSS CUSTOM PROPERTIES FOR DYNAMIC THEMING === */
+@property --slogan-accent {
+    syntax: '<color>';
+    inherits: true;
+    initial-value: #0073e6;
+}
+
+@property --slogan-glow {
+    syntax: '<length>';
+    inherits: true;
+    initial-value: 10px;
+}
+
+/* Target existing Elementor headings that contain the slogan */
+.elementor-heading-title[data-slogan*="Smart Move"],
+h1[data-slogan*="Smart Move"],
+h2[data-slogan*="Smart Move"],
+h3[data-slogan*="Smart Move"] {
+    font-size: clamp(1.3rem, 3.5vw, 2.2rem);
+    color: #333;
+}
+
+/* Enhanced targeting for elements containing the slogan */
+.slogan-wrapper,
+.smart-move-container {
+    position: relative;
+}
+
+.slogan-wrapper::before,
+.smart-move-container::before {
+    content: '⭐';
+    position: absolute;
+    left: -2rem;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.5em;
+    color: #ffd700;
+    animation: twinkle 2s infinite;
+}
+
+@keyframes twinkle {
+    0%, 100% { opacity: 1; transform: translateY(-50%) scale(1); }
+    50% { opacity: 0.5; transform: translateY(-50%) scale(1.2); }
+}
+
+/* ==========================================================================
+   12. Enhanced Typography & Spacing for Custom HTML Blocks
+   ========================================================================== */
+
+/**
+ * Additional utility classes for better typography control
+ * Designed to work with the custom HTML blocks for the slogan
+ */
+
+/* Alignment utilities */
+.slogan-left { text-align: left !important; }
+.slogan-right { text-align: right !important; }
+.slogan-justify { text-align: justify !important; }
+
+/* Spacing utilities for custom HTML blocks */
+.slogan-spacing-sm { margin: 1rem 0; }
+.slogan-spacing-md { margin: 2rem 0; }
+.slogan-spacing-lg { margin: 3rem 0; }
+.slogan-spacing-xl { margin: 4rem 0; }
+
+/* Padding utilities for containers */
+.slogan-padding-sm { padding: 1rem; }
+.slogan-padding-md { padding: 2rem; }
+.slogan-padding-lg { padding: 3rem; }
+
+/* Background variants for sections */
+.slogan-bg-light {
+    background: linear-gradient(135deg, #f8f9fa, #fff);
+    border-radius: 15px;
+    padding: 3rem 1rem;
+    margin: 2rem 0;
+}
+
+.slogan-bg-primary {
+    background: linear-gradient(135deg, var(--primary), #1a3a6b);
+    color: white;
+    border-radius: 15px;
+    padding: 3rem 1rem;
+    margin: 2rem 0;
+}
+
+.slogan-bg-accent {
+    background: linear-gradient(135deg, var(--accent), #005bb5);
+    color: white;
+    border-radius: 15px;
+    padding: 3rem 1rem;
+    margin: 2rem 0;
+}
+
+/* Enhanced non-breaking space handling */
+.company-slogan {
+    word-spacing: 0.1em; /* Slight increase in word spacing for readability */
+    hyphens: none; /* Prevent hyphenation in slogans */
+    word-break: keep-all; /* Keep words together */
+}
+
+/* Mobile-specific typography improvements */
+@media (max-width: 768px) {
+    .company-slogan {
+        word-spacing: 0.05em; /* Tighter spacing on mobile */
+        line-height: 1.4; /* Better line height for small screens */
+    }
+
+    .slogan-bg-light,
+    .slogan-bg-primary,
+    .slogan-bg-accent {
+        padding: 2rem 1rem;
+        margin: 1rem 0;
+    }
+}
+
+/* Print styles for the slogan */
+@media print {
+    .company-slogan {
+        color: black !important;
+        background: none !important;
+        -webkit-text-fill-color: black !important;
+        text-shadow: none !important;
+        box-shadow: none !important;
+    }
+
+    .slogan-gradient,
+    .slogan-3d,
+    .slogan-typewriter {
+        animation: none !important;
+        border: none !important;
+    }
+}
+
+/* Accessibility improvements */
+@media (prefers-reduced-motion: reduce) {
+    .slogan-gradient,
+    .slogan-typewriter,
+    .slogan-animate,
+    .slogan-wrapper::before {
+        animation: none !important;
+    }
+
+    .slogan-highlighted::before {
+        animation: none !important;
+    }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+    .company-slogan {
+        color: black !important;
+        background: white !important;
+        border: 2px solid black !important;
+        -webkit-text-fill-color: black !important;
+    }
+
+    .smart-move,
+    .guarantee {
+        color: black !important;
+        background: yellow !important;
+        -webkit-text-fill-color: black !important;
+    }
+}
+
+/* Focus states for interactive elements */
+.company-slogan:focus-within {
+    outline: 2px solid var(--accent);
+    outline-offset: 4px;
+}

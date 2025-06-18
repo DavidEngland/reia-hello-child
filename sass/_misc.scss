@@ -184,6 +184,20 @@ footer .hfe-nav-menu a:focus-visible {
 }
 
 /* ==========================================================================
+   WordPress Block Editor Improvements
+   ========================================================================== */
+
+/* Custom HTML block container improvements */
+.wp-block-html .company-slogan {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.wp-block-html + .wp-block-html .company-slogan {
+  margin-top: 2rem;
+}
+
+/* ==========================================================================
    Utility: .object-cover, .object-contain, .object-fill, .object-scale-down
    Modern object-fit utilities for images, video, and embeds
    ==========================================================================

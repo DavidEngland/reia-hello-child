@@ -5,11 +5,13 @@
 // - Use these mixins in all partials for consistency and maintainability
 // ============================================================================
 
+@use 'variables' as vars;
+
 // Card mixin: Modern, flexible, and theme-aware
 @mixin card(
-  $background: $card-bg,
-  $radius: $card-radius,
-  $shadow: $card-shadow
+  $background: vars.$card-bg,
+  $radius: vars.$card-radius,
+  $shadow: vars.$card-shadow
 ) {
   background: $background;
   border-radius: $radius;

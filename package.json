@@ -1,0 +1,35 @@
+{
+  "name": "reia-hello-child",
+  "version": "2.2.17",
+  "description": "REIA Hello Child - A modern WordPress child theme with conditional building",
+  "scripts": {
+    "build": "sass style.scss style.css --style=compressed --no-source-map",
+    "build:dev": "./build-theme.sh dev",
+    "build:prod": "./build-theme.sh prod", 
+    "build:minimal": "./build-theme.sh minimal",
+    "watch": "sass style.scss style.css --watch --style=expanded --source-map",
+    "lint:scss": "stylelint 'sass/**/*.scss'",
+    "format": "prettier --write 'sass/**/*.scss'"
+  },
+  "devDependencies": {
+    "sass": "^1.77.8",
+    "stylelint": "^15.11.0",
+    "stylelint-config-standard-scss": "^11.1.0",
+    "prettier": "^3.0.3"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/DavidEngland/reia-hello-child.git"
+  },
+  "author": "DavidEngland",
+  "license": "GPL-3.0-or-later",
+  "keywords": [
+    "wordpress",
+    "theme",
+    "elementor",
+    "real-estate",
+    "responsive",
+    "sass",
+    "modern-css"
+  ]
+}
