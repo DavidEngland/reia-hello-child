@@ -1,0 +1,419 @@
+/*!
+ * FSE Blocks & Patterns - REIA Theme
+ * Styling for WordPress native blocks to replace Elementor sections
+ * Keeps the same visual impact with native performance
+ */
+
+@use 'variables' as *;
+@use 'mixins' as *;
+@use 'sass:color';
+
+/* ==========================================================================
+   Block Pattern Styling
+   ========================================================================== */
+
+// Hero Section Block Pattern
+.reia-hero-section {
+    min-height: 70vh;
+    
+    .wp-block-cover__inner-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: inherit;
+        
+        .wp-block-group {
+            text-align: center;
+            animation: fadeInUp 1s ease-out;
+        }
+        
+        .wp-block-heading {
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+            
+            @media (max-width: 768px) {
+                font-size: 2rem !important;
+            }
+        }
+        
+        .wp-block-button {
+            transform: translateY(0);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            
+            &:hover {
+                transform: translateY(-2px);
+                box-shadow: 0 8px 25px rgba(244, 228, 188, 0.3);
+            }
+        }
+    }
+}
+
+// Primary Section Styling
+.reia-section-primary {
+    position: relative;
+    overflow: hidden;
+    
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(135deg, #{$primary} 0%, #{color.adjust($primary, $lightness: -10%)} 100%);
+        z-index: 0;
+    }
+    
+    > * {
+        position: relative;
+        z-index: 1;
+    }
+    
+    .wp-block-heading {
+        color: $color-text-light !important;
+        text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+    }
+    
+    .wp-block-button {
+        .wp-block-button__link {
+            background-color: $parchment !important;
+            color: $primary !important;
+            border: 2px solid $parchment !important;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            
+            &:hover {
+                background-color: transparent !important;
+                color: $parchment !important;
+                transform: scale(1.05);
+            }
+        }
+    }
+}
+
+// Service Grid Styling
+.reia-service-grid {
+    .wp-block-column {
+        .wp-block-group {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid rgba($accent, 0.1);
+            
+            &:hover {
+                transform: translateY(-5px);
+                box-shadow: 0 10px 30px rgba($primary, 0.15) !important;
+                
+                .wp-block-heading {
+                    color: $primary !important;
+                }
+            }
+        }
+        
+        .wp-block-heading {
+            transition: color 0.3s ease;
+            font-weight: 700;
+        }
+    }
+}
+
+/* ==========================================================================
+   Core Block Enhancements
+   ========================================================================== */
+
+// Enhanced Quote Block
+.wp-block-quote {
+    border-left: 4px solid $accent;
+    padding-left: 2rem;
+    position: relative;
+    
+    &::before {
+        content: '"';
+        position: absolute;
+        top: -10px;
+        left: -10px;
+        font-size: 4rem;
+        color: $accent;
+        opacity: 0.3;
+        font-family: Georgia, serif;
+        line-height: 1;
+    }
+    
+    p {
+        font-style: italic;
+        color: $primary;
+        margin-bottom: 1rem;
+    }
+    
+    cite {
+        font-style: normal;
+        font-weight: 600;
+        color: $color-text-muted;
+        
+        &::before {
+            content: '— ';
+        }
+    }
+}
+
+// Enhanced Button Blocks
+.wp-block-button {
+    .wp-block-button__link {
+        border-radius: 2rem;
+        padding: 0.8rem 2rem;
+        font-weight: 600;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+        
+        &::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s ease;
+        }
+        
+        &:hover::before {
+            left: 100%;
+        }
+    }
+    
+    // Button Variations
+    &.is-style-outline {
+        .wp-block-button__link {
+            background: transparent !important;
+            border: 2px solid currentColor;
+            
+            &:hover {
+                background: currentColor !important;
+                color: white !important;
+            }
+        }
+    }
+}
+
+// Enhanced Group Blocks
+.wp-block-group {
+    &.has-card-bg-background-color {
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        
+        &:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba($primary, 0.1) !important;
+        }
+    }
+}
+
+// Enhanced Cover Blocks
+.wp-block-cover {
+    position: relative;
+    
+    &.reia-hero-section {
+        .wp-block-cover__background {
+            background: linear-gradient(135deg, #{$primary} 0%, #{color.adjust($primary, $lightness: -15%)} 100%);
+        }
+    }
+    
+    .wp-block-cover__inner-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 50vh;
+    }
+}
+
+// Enhanced Columns for Service Grids
+.wp-block-columns {
+    &.reia-service-grid {
+        .wp-block-column {
+            transition: transform 0.3s ease;
+            
+            &:hover {
+                transform: translateY(-2px);
+            }
+        }
+    }
+}
+
+/* ==========================================================================
+   Testimonial Specific Styling
+   ========================================================================== */
+
+.reia-testimonial-section {
+    .wp-block-quote {
+        border: none;
+        padding: 2rem;
+        background: linear-gradient(135deg, #fff9e6, #fffbe7);
+        border-radius: $card-radius;
+        box-shadow: $card-shadow;
+        position: relative;
+        
+        &::before {
+            content: '"';
+            position: absolute;
+            top: -20px;
+            left: 20px;
+            font-size: 5rem;
+            color: $accent;
+            opacity: 0.2;
+            font-family: Georgia, serif;
+        }
+        
+        &::after {
+            content: '"';
+            position: absolute;
+            bottom: -40px;
+            right: 20px;
+            font-size: 5rem;
+            color: $accent;
+            opacity: 0.2;
+            font-family: Georgia, serif;
+        }
+        
+        p {
+            font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+            color: $primary;
+        }
+        
+        cite {
+            display: block;
+            text-align: center;
+            font-size: 1rem;
+            color: $color-text-muted;
+            font-weight: 600;
+        }
+    }
+}
+
+/* ==========================================================================
+   Animation Keyframes
+   ========================================================================== */
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes shimmer {
+    0% {
+        transform: translateX(-100%);
+    }
+    100% {
+        transform: translateX(100%);
+    }
+}
+
+/* ==========================================================================
+   Responsive Adjustments
+   ========================================================================== */
+
+@media (max-width: 768px) {
+    .reia-hero-section {
+        min-height: 50vh;
+        
+        .wp-block-heading {
+            font-size: 2rem !important;
+            line-height: 1.2 !important;
+        }
+        
+        .wp-block-paragraph {
+            font-size: 1rem !important;
+        }
+    }
+    
+    .wp-block-columns {
+        .wp-block-column {
+            margin-bottom: 2rem;
+        }
+    }
+    
+    .reia-testimonial-section {
+        .wp-block-quote {
+            padding: 1.5rem;
+            
+            &::before,
+            &::after {
+                font-size: 3rem;
+            }
+        }
+    }
+}
+
+/* ==========================================================================
+   Print Styles
+   ========================================================================== */
+
+@media print {
+    .reia-hero-section,
+    .reia-section-primary {
+        background: white !important;
+        color: black !important;
+        
+        * {
+            color: black !important;
+        }
+    }
+    
+    .wp-block-button {
+        display: none;
+    }
+}
+
+/* ==========================================================================
+   High Contrast Mode
+   ========================================================================== */
+
+@media (prefers-contrast: high) {
+    .reia-hero-section,
+    .reia-section-primary {
+        background: black !important;
+        color: white !important;
+        
+        .wp-block-heading,
+        .wp-block-paragraph {
+            color: white !important;
+        }
+        
+        .wp-block-button {
+            .wp-block-button__link {
+                background: yellow !important;
+                color: black !important;
+                border: 2px solid black !important;
+            }
+        }
+    }
+}
+
+/* ==========================================================================
+   Reduced Motion
+   ========================================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+    .reia-hero-section {
+        .wp-block-group {
+            animation: none;
+        }
+    }
+    
+    .wp-block-button,
+    .wp-block-group,
+    .reia-service-grid .wp-block-group {
+        transition: none !important;
+        transform: none !important;
+    }
+    
+    .wp-block-button__link::before {
+        display: none;
+    }
+}

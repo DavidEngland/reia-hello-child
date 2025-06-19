@@ -53,52 +53,64 @@
             "palette": [
                 {
                     "slug": "primary",
-                    "color": "#002d5f",
-                    "name": "Primary"
-                },
-                {
-                    "slug": "secondary",
-                    "color": "#fbde4f",
-                    "name": "Secondary"
+                    "color": "#002D5F",
+                    "name": "Primary Blue"
                 },
                 {
                     "slug": "accent",
-                    "color": "#ac3033",
-                    "name": "Accent"
+                    "color": "#0073e6",
+                    "name": "Accent Blue"
+                },
+                {
+                    "slug": "parchment",
+                    "color": "#F4E4BC",
+                    "name": "Parchment Gold"
                 },
                 {
                     "slug": "background",
-                    "color": "#fff",
-                    "name": "Background"
+                    "color": "#ffffff",
+                    "name": "Background White"
                 },
                 {
                     "slug": "text",
-                    "color": "#111",
-                    "name": "Text (Black)"
+                    "color": "#212529",
+                    "name": "Text Dark"
                 },
                 {
-                    "slug": "muted",
-                    "color": "#888",
-                    "name": "Muted"
+                    "slug": "text-light",
+                    "color": "#ffffff",
+                    "name": "Text Light"
                 },
                 {
-                    "slug": "white",
-                    "color": "#fff",
-                    "name": "White"
+                    "slug": "text-muted",
+                    "color": "#6c757d",
+                    "name": "Text Muted"
+                },
+                {
+                    "slug": "card-bg",
+                    "color": "#ffffff",
+                    "name": "Card Background"
+                },
+                {
+                    "slug": "card-bg-alt",
+                    "color": "#f8f9fa",
+                    "name": "Card Background Alt"
                 }
-            ]
+            ],
+            "custom": true,
+            "customGradient": true
         },
         "custom": {}
     },
     "styles": {
+        "typography": {
+            "fontFamily": "var(--wp--preset--font-family--inter)",
+            "lineHeight": "1.6",
+            "fontSize": "1.1rem"
+        },
         "color": {
             "background": "var(--wp--preset--color--background)",
             "text": "var(--wp--preset--color--text)"
-        },
-        "typography": {
-            "fontFamily": "var(--wp--preset--font-family--roboto)",
-            "lineHeight": "1.6",
-            "fontSize": "1.1rem"
         },
         "elements": {
             "heading": {

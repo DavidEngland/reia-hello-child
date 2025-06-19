@@ -6,6 +6,43 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## [Unreleased]
 
+## [2.3.1] - 2025-06-19
+
+### Added
+- **Full Site Editing (FSE) Migration Foundation**: Strategic foundation for transitioning away from Elementor
+  - Block patterns for hero sections, service grids, testimonials, and CTAs
+  - Enhanced theme.json with synchronized color system and typography
+  - FSE-specific SCSS partial (`_fse-blocks.scss`) for native block styling
+  - Custom block pattern registration system in PHP
+  - Migration documentation and utility guides
+- **Block Pattern Library**: Ready-to-use patterns that replicate Elementor functionality
+  - `reia/hero-section` - Cover block with primary blue background and CTA
+  - `reia/services-grid` - Three-column service layout with cards
+  - `reia/testimonial-section` - Enhanced quote block with testimonial styling
+  - `reia/contact-cta` - Contact section with primary background and button
+- **Enhanced WordPress Support**: Full theme support for modern WordPress features
+  - Block styles, responsive embeds, custom spacing, and appearance tools
+  - Border controls, link color controls, and custom line heights
+  - Modern CSS integration with WordPress editor
+
+### Changed
+- **theme.json Color Sync**: Updated color palette to match SCSS variables exactly
+  - Primary Blue (#002D5F), Accent Blue (#0073e6), Parchment Gold (#F4E4BC)
+  - Text colors for light/dark backgrounds and muted states
+  - Card background colors for consistent theming
+- **Typography Enhancement**: Improved font family system in theme.json
+  - Inter as primary font, Merriweather for headings, Poppins for display
+  - Enhanced font size scale with responsive sizing
+- **Build System Update**: Added FSE blocks to all build configurations
+  - Development build now includes FSE styling (56KB total)
+  - Production and minimal builds will include FSE when needed
+
+### Fixed
+- **SCSS Compilation**: Resolved modern color function usage
+  - Replaced deprecated `darken()` with `color.adjust()`
+  - Added proper SASS color module imports
+  - Fixed mixin references for responsive layouts
+
 ## [2.3.0] - 2025-06-19
 
 ### Added

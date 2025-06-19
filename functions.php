@@ -9,7 +9,7 @@ if ( ! defined( 'ABSPATH' ) ) {
     exit; // Exit if accessed directly.
 }
 
-define( 'HELLO_ELEMENTOR_CHILD_VERSION', '2.0.0' );
+define( 'HELLO_ELEMENTOR_CHILD_VERSION', '2.3.1' );
 
 /**
  * Enqueue child theme styles.
@@ -84,6 +84,41 @@ if ( defined( 'SQUIRRY_VERSION' ) ) {
     add_filter( 'squirrly_title', 'reia_titlecase', 99 );
 }
 
+
+/**
+ * Add theme support for Full Site Editing features
+ */
+function reia_theme_support() {
+    // Add support for block styles
+    add_theme_support( 'wp-block-styles' );
+    
+    // Add support for responsive embeds
+    add_theme_support( 'responsive-embeds' );
+    
+    // Add support for custom line heights
+    add_theme_support( 'custom-line-height' );
+    
+    // Add support for custom units
+    add_theme_support( 'custom-units' );
+    
+    // Add support for custom spacing
+    add_theme_support( 'custom-spacing' );
+    
+    // Add support for appearance tools
+    add_theme_support( 'appearance-tools' );
+    
+    // Add support for border controls
+    add_theme_support( 'border' );
+    
+    // Add support for link color controls
+    add_theme_support( 'link-color' );
+}
+add_action( 'after_setup_theme', 'reia_theme_support' );
+
+/**
+ * Include block patterns for FSE migration
+ */
+require_once get_stylesheet_directory() . '/inc/block-patterns.php';
 
 /**
  * Documentation:
