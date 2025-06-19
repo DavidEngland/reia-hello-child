@@ -3,17 +3,21 @@
 A modern, maintainable, and extensible WordPress child theme for [Hello Elementor](https://wordpress.org/themes/hello-elementor/), designed for rapid development with Elementor and custom plugins.
 
 **Repository:** [DavidEngland/reia-hello-child](https://github.com/DavidEngland/reia-hello-child)  
-**Author:** David England
+**Author:** David England  
+**Version:** 2.3.0
 
 ## Features
 
 - **Modern CSS & SASS**: Uses CSS variables, `@property`, `@layer`, container queries, and a robust SASS architecture.
+- **WordPress Block Theme Support**: Full `theme.json` specification with modern font families and typography scale.
 - **Conditional Build System**: Three optimized builds (dev/prod/minimal) to reduce CSS bloat by up to 73%.
+- **Elementor Section Styling**: Comprehensive styling for header, footer, and home page sections with primary blue background and white text.
+- **Color System**: Enhanced color palette with parchment gold accents (#F4E4BC) and proper contrast ratios.
 - **Custom Card & Grid System**: Flexible, responsive layouts for posts, Connections Directory, and custom widgets.
-- **Performance Optimized**: From 44KB (full) to 12KB (minimal) builds for faster loading.
-- **Superscript & Typography**: Proper styling for `<sup>SM</sup>`, special characters, and HTML entities.
+- **Performance Optimized**: From 52KB (full) to 12KB (minimal) builds for faster loading.
+- **Content Area Specificity**: Smart CSS targeting ensuring white backgrounds only on post/page content, not site sections.
+- **Typography & Accessibility**: Proper styling for `<sup>SM</sup>`, special characters, and accessible color contrasts.
 - **Developer Friendly**: Well-documented code, modular SASS partials, and clear variable/mixin usage.
-- **Extensible Shortcodes**: Improved PHP shortcodes for Connections plugin (cardfooter, cardlink, cardparts).
 - **WordPress & Elementor Ready**: Seamless integration with Elementor and WordPress block editor.
 
 ## Quick Start
@@ -22,13 +26,13 @@ A modern, maintainable, and extensible WordPress child theme for [Hello Elemento
 Choose your build based on needs:
 
 ```bash
-# Production build (no animations) - 24KB
+# Production build (no animations) - ~28KB
 ./build-theme.sh prod
 
-# Minimal build (core only) - 12KB  
+# Minimal build (core only) - ~14KB  
 ./build-theme.sh minimal
 
-# Development build (all features) - 44KB
+# Development build (all features) - ~52KB
 ./build-theme.sh dev
 ```
 
@@ -40,10 +44,25 @@ Choose your build based on needs:
 4. Ensure the parent [Hello Elementor](https://wordpress.org/themes/hello-elementor/) theme is installed and active.
 5. (Optional) Install and activate recommended plugins (e.g., Elementor, Connections Business Directory).
 
+## Design System
+
+### Color Palette
+- **Primary Blue**: `#002D5F` - Used for header, footer, and main sections
+- **Accent Blue**: `#0073e6` - Links and interactive elements
+- **Parchment Gold**: `#F4E4BC` - Accent color for links on dark backgrounds
+- **Text Colors**: `#212529` (dark), `#ffffff` (light), `#6c757d` (muted)
+
+### Layout Strategy
+- **Content Areas**: White backgrounds with black text for optimal readability
+- **Site Sections**: Primary blue backgrounds with white text for headers, footers, home page
+- **Smart Targeting**: CSS selectors specifically target content vs. site sections to prevent conflicts
+
 ## Usage
 
 - **Build CSS**: Use `./build-theme.sh [type]` for optimized builds
 - **Development**: Use `npm run watch` for live SASS compilation
+- **Elementor Sections**: Header, footer, and home page sections automatically styled with primary blue theme
+- **Content Editing**: Post and page content maintains clean white backgrounds for readability
 - Customize styles in `style.scss` and SASS partials under `/sass/`.
 - Add or modify PHP shortcodes in `functions.php` or custom plugins.
 - Use the card and grid classes in your Elementor or block layouts for consistent design.

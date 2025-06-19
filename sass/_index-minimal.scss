@@ -1,9 +1,10 @@
 // _index-minimal.scss - Minimal Build (Core Features Only)
 // ============================================================================
+@use 'top';
 @use 'variables';
 @use 'mixins';
+@use 'buttons';
+@use 'post-grid';
 @use 'post-card';
 @use 'single-post-card';
 @use 'misc';
-@use 'buttons';
-@use 'post-grid';

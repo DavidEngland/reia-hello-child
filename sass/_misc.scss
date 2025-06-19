@@ -3,6 +3,75 @@
 @use 'mixins' as *;
 
 /* ==========================================================================
+   Post & Page Content Typography — Clean White Backgrounds with Black Text
+   ========================================================================== */
+/**
+ * General content styling for posts and pages ONLY
+ * - Ensures clean white backgrounds with proper black text contrast
+ * - Applies to WordPress content areas within posts/pages, NOT header/footer
+ * - Excludes Elementor sections used for header, footer, and home page
+ */
+
+// Main content areas for posts and pages only (exclude footer)
+.entry-content,
+.post-content,
+.page-content,
+.wp-block-post-content {
+  color: $color-text;
+  background: #fff;
+}
+
+// Exclude footer areas from white background
+.footer-width-fixer .entry-content,
+.footer-width-fixer .post-content,
+.footer-width-fixer .page-content,
+.footer-width-fixer .wp-block-post-content {
+  background: transparent; /* Let footer use its primary background */
+}
+
+// Elementor text widgets ONLY within post/page content (not header/footer)
+.single-post .elementor-widget-text-editor,
+.page:not(.elementor-page) .elementor-widget-text-editor,
+.blog .elementor-widget-text-editor,
+.archive .elementor-widget-text-editor {
+  color: $color-text;
+  background: #fff;
+}
+
+// Exclude footer areas from white background for Elementor widgets
+.footer-width-fixer .elementor-widget-text-editor {
+  background: transparent !important; /* Let footer use its primary background */
+}
+
+// Elementor widget containers ONLY within post/page content (not header/footer)
+.single-post .elementor-widget-container,
+.page:not(.elementor-page) .elementor-widget-container,
+.blog .elementor-widget-container,
+.archive .elementor-widget-container {
+  background-color: inherit !important; /* Ensure no background override in content areas */
+}
+
+// Exclude footer areas from background inheritance
+.footer-width-fixer .elementor-widget-container {
+  background-color: transparent !important; /* Let footer use its primary background */
+}
+// WordPress blocks and content elements within content areas only
+.entry-content .wp-block-paragraph,
+.entry-content .wp-block-heading,
+.entry-content .wp-block-list,
+.entry-content .wp-block-quote,
+.post-content .wp-block-paragraph,
+.post-content .wp-block-heading,
+.post-content .wp-block-list,
+.post-content .wp-block-quote,
+.page-content .wp-block-paragraph,
+.page-content .wp-block-heading,
+.page-content .wp-block-list,
+.page-content .wp-block-quote {
+  color: $color-text;
+}
+
+/* ==========================================================================
    Footer Navigation (Top Level Only) — Modernized & Documented
    ========================================================================== */
 /**

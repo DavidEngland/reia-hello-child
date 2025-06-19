@@ -6,18 +6,51 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## [Unreleased]
 
+## [2.3.0] - 2025-06-19
+
 ### Added
-- Conditional build system with three optimized builds (dev/prod/minimal)
-- Build script (`build-theme.sh`) for automated CSS compilation
-- Node.js workflow support with npm scripts and package.json
-- Performance-optimized builds reducing CSS from 44KB to 12KB (73% reduction)
-- Comprehensive build documentation (`BUILD.md`)
+- **theme.json Support**: Added WordPress Block Theme specification file
+  - Modern font families (Inter, Merriweather, Poppins, Roboto)
+  - Enhanced typography scale with improved font sizes
+  - Block-level styling for post content, headings, and paragraphs
+  - Color palette definitions for WordPress editor integration
+- **Elementor Section Styling**: Comprehensive styling for header, footer, and home page sections
+  - Primary blue background (#002D5F) with white text for all Elementor sections
+  - Parchment gold accent color (#F4E4BC) for links and highlights
+  - Proper contrast and accessibility compliance
+- **Color System Enhancement**: New color variables and CSS custom properties
+  - `$parchment: #F4E4BC` for yellowish gold accents
+  - `$color-text-light: #ffffff` for text on dark backgrounds
+  - Enhanced color palette for better design consistency
+- **Footer-specific Exclusions**: Targeted CSS to prevent white backgrounds in footer areas
+  - `.footer-width-fixer` selectors to override content styling in footer context
+  - Proper inheritance chain for Elementor widget containers
+- **Content Area Specificity**: Enhanced selectors for post and page content styling
+  - More specific targeting to avoid affecting header/footer areas
+  - Improved scoping for WordPress blocks and Elementor widgets
 
 ### Changed
-- Repository ownership to DavidEngland/reia-hello-child
-- Theme name updated to "REIA Hello Child"
-- Author updated to David England
-- Build system restructured for better performance optimization
+- **Content Background Strategy**: Refined white background application
+  - White backgrounds now only apply to actual post/page content areas
+  - Excludes header, footer, and home page sections from white background treatment
+  - Better inheritance handling for Elementor widget containers
+- **CSS Selector Specificity**: Improved targeting of content elements
+  - More precise selectors for `.elementor-widget-text-editor` and related elements
+  - Context-aware styling based on page type and section location
+- **Build System**: Updated SCSS compilation to handle new color variables
+  - Fixed `@use` statement placement issues in SCSS files
+  - Resolved deprecation warnings for mixed declarations
+
+### Fixed
+- **SCSS Compilation Errors**: Resolved `@use` rules placement issues
+  - Fixed `@use 'variables' as *;` statement positioning in `_hfe.scss`
+  - Eliminated build errors while preserving deprecation warnings for non-critical issues
+- **Background Inheritance**: Corrected Elementor widget container background handling
+  - Fixed unwanted white backgrounds in footer sections
+  - Ensured proper inheritance of primary blue backgrounds in Elementor sections
+- **Color Conflicts**: Resolved styling conflicts between content areas and site sections
+  - Prevented content styling from overriding header/footer design
+  - Maintained design integrity across different page sections
 
 ## [2.2.17] - 2025-06-18
 

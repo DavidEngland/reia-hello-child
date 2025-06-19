@@ -1,3 +1,6 @@
+// Import variables for color access (must be first)
+@use 'variables' as *;
+
 /* ===========================================================================
    Elementor Header Footer (HFE) & UAE Menu Overrides
    Modern, accessible, and minimal menu improvements for top and footer menus
@@ -139,4 +142,158 @@
 }
 .hfe-nav-menu--main li:last-child a {
   border-right: none;
+}
+
+/* ==========================================================================
+   Elementor Section Styling for Header, Footer & Home Page
+   Primary Blue Background (#002d5f) with White Text
+   ========================================================================== */
+/**
+ * Elementor styling for header, footer, and home page sections
+ * - Primary blue background (#002d5f) with white text
+ * - Proper link styling with parchment gold accents
+ * - Responsive and accessible design
+ * - Maintains readability and contrast
+ */
+
+// Elementor sections with primary blue background
+.elementor-section.elementor-section-boxed > .elementor-container,
+.elementor-section > .elementor-container,
+.elementor-widget-wrap,
+.elementor-header,
+.elementor-footer {
+  background-color: var(--primary, #{$primary});
+  color: var(--color-text-light, #{$color-text-light});
+}
+
+// Elementor widgets inside primary sections
+.elementor-section .elementor-widget,
+.elementor-section .elementor-widget-container,
+.elementor-header .elementor-widget,
+.elementor-footer .elementor-widget {
+  color: var(--color-text-light, #{$color-text-light});
+}
+
+// Elementor headings in primary sections
+.elementor-section h1,
+.elementor-section h2,
+.elementor-section h3,
+.elementor-section h4,
+.elementor-section h5,
+.elementor-section h6,
+.elementor-header h1,
+.elementor-header h2,
+.elementor-header h3,
+.elementor-header h4,
+.elementor-header h5,
+.elementor-header h6,
+.elementor-footer h1,
+.elementor-footer h2,
+.elementor-footer h3,
+.elementor-footer h4,
+.elementor-footer h5,
+.elementor-footer h6 {
+  color: var(--color-text-light, #{$color-text-light});
+}
+
+// Elementor text widgets and paragraphs
+.elementor-section .elementor-text-editor,
+.elementor-section .elementor-widget-text-editor,
+.elementor-section p,
+.elementor-header .elementor-text-editor,
+.elementor-header .elementor-widget-text-editor,
+.elementor-header p,
+.elementor-footer .elementor-text-editor,
+.elementor-footer .elementor-widget-text-editor,
+.elementor-footer p {
+  color: var(--color-text-light, #{$color-text-light});
+}
+
+// Elementor links with parchment gold accent
+.elementor-section a,
+.elementor-header a,
+.elementor-footer a {
+  color: var(--parchment, #{$parchment});
+  text-decoration: none;
+  transition: color 0.2s ease, text-decoration 0.2s ease;
+}
+
+// Link hover states
+.elementor-section a:hover,
+.elementor-section a:focus,
+.elementor-header a:hover,
+.elementor-header a:focus,
+.elementor-footer a:hover,
+.elementor-footer a:focus {
+  color: var(--color-text-light, #{$color-text-light});
+  text-decoration: underline;
+  text-decoration-color: var(--parchment, #{$parchment});
+}
+
+// Navigation menu links in Elementor sections
+.elementor-section .hfe-nav-menu a,
+.elementor-header .hfe-nav-menu a,
+.elementor-footer .hfe-nav-menu a {
+  color: var(--color-text-light, #{$color-text-light});
+  background: transparent;
+}
+
+.elementor-section .hfe-nav-menu a:hover,
+.elementor-section .hfe-nav-menu a:focus,
+.elementor-header .hfe-nav-menu a:hover,
+.elementor-header .hfe-nav-menu a:focus,
+.elementor-footer .hfe-nav-menu a:hover,
+.elementor-footer .hfe-nav-menu a:focus {
+  color: var(--parchment, #{$parchment});
+  background: rgba(244, 228, 188, 0.1); // Subtle parchment background
+}
+
+// Elementor buttons in primary sections
+.elementor-section .elementor-button,
+.elementor-header .elementor-button,
+.elementor-footer .elementor-button {
+  background-color: var(--parchment, #{$parchment});
+  color: var(--primary, #{$primary});
+  border: 2px solid var(--parchment, #{$parchment});
+  transition: all 0.2s ease;
+}
+
+.elementor-section .elementor-button:hover,
+.elementor-section .elementor-button:focus,
+.elementor-header .elementor-button:hover,
+.elementor-header .elementor-button:focus,
+.elementor-footer .elementor-button:hover,
+.elementor-footer .elementor-button:focus {
+  background-color: transparent;
+  color: var(--parchment, #{$parchment});
+  border-color: var(--parchment, #{$parchment});
+}
+
+// Ensure proper contrast for form elements in Elementor sections
+.elementor-section input,
+.elementor-section textarea,
+.elementor-section select,
+.elementor-header input,
+.elementor-header textarea,
+.elementor-header select,
+.elementor-footer input,
+.elementor-footer textarea,
+.elementor-footer select {
+  background-color: var(--color-text-light, #{$color-text-light});
+  color: var(--primary, #{$primary});
+  border: 1px solid var(--parchment, #{$parchment});
+}
+
+// Focus states for form elements
+.elementor-section input:focus,
+.elementor-section textarea:focus,
+.elementor-section select:focus,
+.elementor-header input:focus,
+.elementor-header textarea:focus,
+.elementor-header select:focus,
+.elementor-footer input:focus,
+.elementor-footer textarea:focus,
+.elementor-footer select:focus {
+  outline: 2px solid var(--parchment, #{$parchment});
+  outline-offset: 2px;
 }

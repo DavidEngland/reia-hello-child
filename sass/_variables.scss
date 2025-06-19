@@ -16,10 +16,13 @@
 // ============================================================================
 $primary: #002D5F;
 $accent: #0073e6;
-$color-text-muted: #444;
+$parchment: #F4E4BC; // Yellowish gold like old parchment paper
+$color-text: #212529;
+$color-text-muted: #6c757d;
+$color-text-light: #ffffff; // For text on dark backgrounds
 $card-radius: 1.5rem;
-$card-bg: hsl(40 75% 96%);
-$card-bg-alt: #e0e6ed;
+$card-bg: #ffffff;
+$card-bg-alt: #f8f9fa;
 $card-shadow: 0 2px 12px rgba(0,0,0,0.07);
 $card-shadow-hover: 0 4px 16px rgba(0,45,95,0.08);
 $gap-cards: 2rem;
@@ -43,7 +46,10 @@ $excerpt-lines: 3;
 :root {
   --primary: #{$primary};
   --accent: #{$accent};
+  --parchment: #{$parchment};
+  --color-text: #{$color-text};
   --color-text-muted: #{$color-text-muted};
+  --color-text-light: #{$color-text-light};
   --card-radius: #{$card-radius};
   --card-bg: #{$card-bg};
   --card-bg-alt: #{$card-bg-alt};

@@ -46,7 +46,7 @@ add_action('wp_enqueue_scripts', 'hello_elementor_child_scripts_styles', 20);
 function reia_titlecase($title)
 {
     // List of acronyms to preserve in uppercase
-    $acronyms = ['MLS', 'REIA', 'NASA', 'HSV', 'AL', 'USA'];
+    $acronyms = ['MLS', 'REIA', 'NASA', 'HSV', 'AL', 'USA', 'MRP'];
 
     // Decode HTML entities so we can process real characters
     $title = html_entity_decode($title, ENT_QUOTES | ENT_HTML5, 'UTF-8');

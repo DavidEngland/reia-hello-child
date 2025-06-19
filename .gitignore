@@ -45,7 +45,9 @@ wp-content/upgrade/
 
 # Backup and temp files
 *.bak
+*.bak.*
 *.tmp
+*.zip
 *~
 
 # SFTP/FTP config
