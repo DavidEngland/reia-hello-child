@@ -6,6 +6,44 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## [Unreleased]
 
+## [2.4.1] - 2025-07-21
+
+### Added
+
+- **🎨 Border Animation System**: Complete CSS-only conic gradient animation library
+  - Modern rotating border effects using conic gradients
+  - Real estate specific components (property cards, agent profiles, CTA buttons)
+  - 12KB compressed animation library with hardware acceleration
+  - Accessibility support with `prefers-reduced-motion` respect
+  - Comprehensive documentation in `BORDER-ANIMATIONS.md`
+- **Real Estate Components**: Purpose-built animated classes
+  - `.reia-property-card` - Property listing cards with hover animations
+  - `.reia-agent-card` - Agent profile cards with dark theme
+  - `.reia-cta-button` - Call-to-action buttons with border animations
+  - `.reia-hero-card` - Hero section components with slow animations
+  - `.reia-testimonial` - Testimonial cards with glow effects
+- **Enhanced Build System**: Improved conditional compilation
+  - Updated size reporting and build feedback
+  - Better error handling and deprecation warnings
+  - Three optimized builds: dev (60KB), prod (36KB), minimal (25KB)
+
+### Changed
+
+- **Build Performance**: Updated file size targets and optimization
+  - Development build now 60KB (down from 95KB)
+  - Production build now 36KB (optimized with border animations)
+  - Minimal build now 25KB (core features only)
+- **Documentation**: Comprehensive updates across all docs
+  - Updated README.md with new features and accurate file sizes
+  - Enhanced BUILD.md with latest performance metrics
+  - New border animation documentation with examples
+
+### Fixed
+
+- **SASS Compilation**: Resolved deprecation warnings in post-grid module
+- **Animation Performance**: Optimized keyframes and hardware acceleration
+- **CSS Organization**: Better modular structure for maintainability
+
 ## [2.3.0] - 2025-06-19
 
 ### Added

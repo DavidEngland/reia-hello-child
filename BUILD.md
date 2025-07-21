@@ -38,30 +38,37 @@ npm run build:minimal # Minimal features
 
 | Feature | Description | Size Impact | Default |
 |---------|-------------|-------------|---------|
-| `$include-animations` | Full animate.css library | ~60KB | `false` (prod) |
-| `$include-slogans` | Custom slogan styling | ~5KB | `true` |
-| `$include-advanced-buttons` | Enhanced button styles | ~8KB | `true` |
-| `$include-zillow-review` | Zillow review widget | ~3KB | `true` |
-| `$include-post-grid` | Post grid layout system | ~4KB | `true` |
+| `$include-animations` | Full animate.css library | ~35KB | `false` (prod) |
+| `$include-border-animations` | ✨ **NEW** Conic gradient border animations | ~12KB | `true` |
+| `$include-slogans` | Custom slogan styling | ~8KB | `true` |
+| `$include-advanced-buttons` | Enhanced button styles | ~6KB | `true` |
+| `$include-zillow-review` | Zillow review widget | ~2KB | `true` |
+| `$include-post-grid` | Post grid layout system | ~3KB | `true` |
 | `$include-details-styling` | Enhanced details/summary | ~2KB | `true` |
 | `$include-hfe-menus` | Elementor menu improvements | ~3KB | `true` |
 
 ## Build Configurations
 
 ### Development Build
-- **All features enabled**
-- **File size:** ~95KB (uncompressed)
+
+- **All features enabled** including animations and border animations
+- **File size:** ~60KB (compressed)
 - **Use case:** Local development and testing
+- **Border animations:** Full conic gradient suite with real estate specific components
 
 ### Production Build
+
 - **Animations disabled** (major size reduction)
+- **Border animations enabled** (CSS-only, performant)
 - **All other features enabled**
-- **File size:** ~35KB (compressed)
+- **File size:** ~36KB (compressed)
 - **Use case:** Live websites prioritizing performance
 
 ### Minimal Build
+
 - **Only core features**
-- **File size:** ~20KB (compressed)
+- **No animations or border effects**
+- **File size:** ~25KB (compressed)
 - **Use case:** Landing pages, minimal sites
 
 ## Manual Configuration

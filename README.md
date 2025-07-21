@@ -4,17 +4,25 @@ A modern, maintainable, and extensible WordPress child theme for [Hello Elemento
 
 **Repository:** [DavidEngland/reia-hello-child](https://github.com/DavidEngland/reia-hello-child)  
 **Author:** David England  
-**Version:** 2.3.0
+**Version:** 2.4.1
+
+## ✨ New Features
+
+- **🎨 Border Animations**: CSS-only conic gradient animations for real estate components
+- **🏠 Real Estate Components**: Purpose-built classes for property cards, agent profiles, and CTAs
+- **⚡ Enhanced Build System**: Improved performance with better size optimization
+- **📚 Comprehensive Documentation**: Detailed usage examples and component library
 
 ## Features
 
 - **Modern CSS & SASS**: Uses CSS variables, `@property`, `@layer`, container queries, and a robust SASS architecture.
 - **WordPress Block Theme Support**: Full `theme.json` specification with modern font families and typography scale.
-- **Conditional Build System**: Three optimized builds (dev/prod/minimal) to reduce CSS bloat by up to 73%.
+- **Conditional Build System**: Three optimized builds (dev/prod/minimal) to reduce CSS bloat by up to 58%.
+- **🆕 Border Animation System**: Modern conic gradient animations for engaging real estate UI components.
 - **Elementor Section Styling**: Comprehensive styling for header, footer, and home page sections with primary blue background and white text.
 - **Color System**: Enhanced color palette with parchment gold accents (#F4E4BC) and proper contrast ratios.
 - **Custom Card & Grid System**: Flexible, responsive layouts for posts, Connections Directory, and custom widgets.
-- **Performance Optimized**: From 52KB (full) to 12KB (minimal) builds for faster loading.
+- **Performance Optimized**: From 60KB (dev) to 25KB (minimal) builds for faster loading.
 - **Content Area Specificity**: Smart CSS targeting ensuring white backgrounds only on post/page content, not site sections.
 - **Typography & Accessibility**: Proper styling for `<sup>SM</sup>`, special characters, and accessible color contrasts.
 - **Developer Friendly**: Well-documented code, modular SASS partials, and clear variable/mixin usage.
@@ -23,16 +31,17 @@ A modern, maintainable, and extensible WordPress child theme for [Hello Elemento
 ## Quick Start
 
 ### Build System
+
 Choose your build based on needs:
 
 ```bash
-# Production build (no animations) - ~28KB
+# Production build (optimized) - ~36KB
 ./build-theme.sh prod
 
-# Minimal build (core only) - ~14KB  
+# Minimal build (core only) - ~25KB  
 ./build-theme.sh minimal
 
-# Development build (all features) - ~52KB
+# Development build (all features) - ~60KB
 ./build-theme.sh dev
 ```
 
