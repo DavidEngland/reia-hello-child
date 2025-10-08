@@ -227,6 +227,21 @@ footer .hfe-nav-menu a:focus-visible {
 .text-left   { text-align: left !important; }
 .text-right  { text-align: right !important; }
 
+/* 5.1. Utility: Text Colors */
+.text-dark     { color: #212529 !important; }
+.text-muted    { color: #6c757d !important; }
+.text-light    { color: #ffffff !important; }
+.text-primary  { color: var(--primary, #002D5F) !important; }
+.text-accent   { color: var(--accent, #0073e6) !important; }
+.text-gold     { color: #fbde4f !important; }
+
+/* 5.2. Utility: Background Colors */
+.bg-white      { background-color: #ffffff !important; }
+.bg-light      { background-color: #f8f9fa !important; }
+.bg-dark       { background-color: #212529 !important; }
+.bg-primary    { background-color: var(--primary, #002D5F) !important; }
+.bg-accent     { background-color: var(--accent, #0073e6) !important; }
+
 /* 6. Utility: .m-0, .p-0 (margin/padding reset) */
 .m-0 { margin: 0 !important; }
 .p-0 { padding: 0 !important; }

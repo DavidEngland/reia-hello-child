@@ -1,0 +1,443 @@
+// ============================================================================
+// UAE Header & Home Page Specific Styles
+// Theme: Hello Elementor Child v2.4.1  
+// Description: UAE header styling with special home page treatment
+// ============================================================================
+
+// Import variables
+@use 'variables' as vars;
+
+// ============================================================================
+// Base Header Styles (All Pages)
+// ============================================================================
+
+// Main header container
+.elementor-location-header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(0, 45, 95, 0.1);
+  box-shadow: 0 2px 12px rgba(0, 45, 95, 0.05);
+}
+
+// Header layout - Logo left, menus right
+.header-main-layout {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem 1rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  
+  @media (max-width: 768px) {
+    padding: 0.5rem 1rem;
+    flex-wrap: wrap;
+  }
+}
+
+// ============================================================================
+// Site Logo Styling
+// ============================================================================
+
+.site-logo,
+.elementor-widget-theme-site-logo,
+.elementor-widget-image .site-logo-link {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  transition: transform 0.3s ease;
+  
+  &:hover {
+    transform: scale(1.05);
+  }
+  
+  img {
+    height: 60px;
+    width: auto;
+    max-width: 200px;
+    
+    @media (max-width: 768px) {
+      height: 50px;
+      max-width: 150px;
+    }
+  }
+}
+
+// ============================================================================
+// UAE Navigation Menus - Right Justified
+// ============================================================================
+
+.header-nav-container {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+  
+  @media (max-width: 768px) {
+    gap: 1rem;
+    width: 100%;
+    justify-content: center;
+    margin-top: 0.5rem;
+  }
+}
+
+// HFE Menu styling - Target actual HFE widget classes (Header Footer Elementor)
+.hfe-nav-menu,
+.elementor-widget-hfe-nav-menu,
+.hfe-nav-menu-wrapper {
+  .hfe-nav-menu__layout-horizontal,
+  .hfe-nav-menu__layout-horizontal ul,
+  .hfe-nav-menu-layout-horizontal {
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    
+    @media (max-width: 768px) {
+      gap: 1rem;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    
+    li {
+      margin: 0;
+      
+      a {
+        color: vars.$primary;
+        font-weight: 600;
+        font-size: 1rem;
+        text-decoration: none;
+        padding: 0.5rem 1rem;
+        border-radius: 0.5rem;
+        transition: all 0.3s ease;
+        position: relative;
+        display: block;
+        
+        &:hover,
+        &:focus {
+          color: vars.$accent;
+          background: rgba(0, 115, 230, 0.1);
+        }
+        
+        &.current-menu-item,
+        &.current_page_item,
+        &.current-menu-ancestor {
+          color: vars.$accent;
+          background: rgba(0, 115, 230, 0.15);
+        }
+      }
+    }
+    
+    // Hide submenus (keep simple)
+    .sub-menu,
+    .hfe-dropdown,
+    .hfe-submenu {
+      display: none !important;
+    }
+  }
+  
+  // Override HFE default styling
+  .hfe-nav-menu__layout-horizontal .hfe-nav-menu-item {
+    margin: 0;
+    padding: 0;
+  }
+  
+  // Remove HFE default borders and backgrounds
+  .hfe-nav-menu-item a {
+    border: none !important;
+    background: transparent !important;
+  }
+}
+
+// ============================================================================
+// HOME PAGE SPECIFIC HEADER
+// ============================================================================
+
+// Home page gets expanded header with title, tagline, CEO image
+.home .elementor-location-header,
+.page-template-elementor_header_footer .home .elementor-location-header {
+  background: transparent;
+  border-bottom: none;
+  box-shadow: none;
+  position: relative;
+  
+  // Add slideshow background container
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(0, 45, 95, 0.8) 0%, rgba(0, 45, 95, 0.6) 100%);
+    z-index: -1;
+  }
+}
+
+// Home page header content
+.home .header-main-layout {
+  flex-direction: column;
+  text-align: center;
+  padding: 2rem 1rem;
+  gap: 1.5rem;
+  
+  @media (max-width: 768px) {
+    padding: 1.5rem 1rem;
+    gap: 1rem;
+  }
+}
+
+// Home page top row - Logo and Navigation
+.home .header-top-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 1rem;
+  
+  @media (max-width: 768px) {
+    flex-direction: column;
+    gap: 1rem;
+  }
+}
+
+// Home page site branding section
+.home .site-branding {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  color: white;
+  
+  .site-title {
+    font-family: vars.$font-heading;
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 700;
+    margin: 0;
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  }
+  
+  .site-tagline {
+    font-family: vars.$font-main;
+    font-size: clamp(1rem, 2vw, 1.25rem);
+    color: #fbde4f;
+    margin: 0;
+    font-style: italic;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+  }
+}
+
+// CEO Image on home page
+.home .ceo-image {
+  margin-top: 1rem;
+  
+  img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    border: 4px solid white;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+    object-fit: cover;
+    
+    @media (max-width: 768px) {
+      width: 100px;
+      height: 100px;
+    }
+  }
+}
+
+// Home page navigation styling (white text on dark background)
+.home .hfe-nav-menu,
+.home .elementor-widget-hfe-nav-menu {
+  .hfe-nav-menu__layout-horizontal,
+  .hfe-nav-menu-layout-horizontal {
+    li a {
+      color: white;
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      
+      &:hover,
+      &:focus {
+        color: #fbde4f;
+        background: rgba(255, 255, 255, 0.2);
+        border-color: rgba(251, 222, 79, 0.3);
+      }
+      
+      &.current-menu-item,
+      &.current_page_item,
+      &.current-menu-ancestor {
+        color: #fbde4f;
+        background: rgba(255, 255, 255, 0.2);
+        border-color: rgba(251, 222, 79, 0.5);
+      }
+    }
+  }
+}
+
+// ============================================================================
+// Slideshow Background for Home Page Header
+// ============================================================================
+
+// Background slideshow container
+.home .header-slideshow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -2;
+  overflow: hidden;
+  
+  .slideshow-slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0;
+    transition: opacity 1.5s ease-in-out;
+    
+    &.active {
+      opacity: 1;
+    }
+  }
+}
+
+// ============================================================================
+// Border Animation Integration for Header Elements
+// ============================================================================
+
+// Optional: Add border animation to logo on home page
+.home .site-logo.reia-property-card {
+  --border-size: 2px;
+  --animation-speed: 8s;
+  border-radius: 1rem;
+  padding: 0.5rem;
+}
+
+// Optional: Add border animation to CEO image
+.home .ceo-image.reia-agent-card {
+  --border-size: 3px;
+  --animation-speed: 6s;
+  border-radius: 50%;
+  padding: 0.25rem;
+  
+  img {
+    border: none; // Remove static border when using animation
+  }
+}
+
+// ============================================================================
+// Responsive Adjustments
+// ============================================================================
+
+@media (max-width: 1024px) {
+  .header-main-layout {
+    padding: 0.75rem 1rem;
+  }
+  
+  .header-nav-container {
+    gap: 1.5rem;
+  }
+  
+  .home .site-branding .site-title {
+    font-size: 2.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .elementor-location-header {
+    position: relative; // Remove sticky on mobile
+  }
+  
+  .header-nav-container {
+    order: 3;
+    width: 100%;
+    justify-content: center;
+    margin-top: 1rem;
+  }
+  
+  .uael-nav-menu .uael-nav-menu__layout-horizontal {
+    gap: 0.75rem;
+    
+    li a {
+      font-size: 0.9rem;
+      padding: 0.4rem 0.8rem;
+    }
+  }
+  
+  .home .site-branding .site-title {
+    font-size: 2rem;
+  }
+  
+  .home .site-branding .site-tagline {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .header-main-layout {
+    padding: 0.5rem;
+  }
+  
+  .home .header-main-layout {
+    padding: 1rem 0.5rem;
+  }
+  
+  .uael-nav-menu .uael-nav-menu__layout-horizontal {
+    gap: 0.5rem;
+    
+    li a {
+      font-size: 0.85rem;
+      padding: 0.3rem 0.6rem;
+    }
+  }
+}
+
+// ============================================================================
+// Accessibility & Performance
+// ============================================================================
+
+// Focus indicators
+.site-logo:focus,
+.uael-nav-menu a:focus {
+  outline: 2px solid vars.$accent;
+  outline-offset: 2px;
+}
+
+// Reduce motion for accessibility
+@media (prefers-reduced-motion: reduce) {
+  .site-logo,
+  .slideshow-slide,
+  .uael-nav-menu a {
+    transition: none;
+  }
+  
+  .home .header-slideshow .slideshow-slide {
+    transition: none;
+  }
+}
+
+// High contrast mode support
+@media (prefers-contrast: high) {
+  .elementor-location-header {
+    background: white;
+    border-bottom: 2px solid vars.$primary;
+  }
+  
+  .home .elementor-location-header::before {
+    background: rgba(0, 45, 95, 0.9);
+  }
+  
+  .uael-nav-menu a {
+    border: 1px solid vars.$primary;
+  }
+}
